@@ -1,0 +1,97 @@
+﻿.page_header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#custom_container
+
+.custom_container, .top_header_container {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.header_card {
+    min-width: 295px;
+    min-height: 10px;
+    max-height: 200px;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+
+
+/* Define custom colors as CSS variables */
+:root {
+    --glow-color-success: rgba(112, 240, 86, 0.7); /* Green glow color */
+    --glow-color-danger: rgba(255, 0, 0, 0.7); /* Red glow color */
+    --glow-color-info: rgb(0, 148, 255);
+    --glow-color-warning: rgb(255, 216, 0)
+}
+
+/* Define the common class for glow border */
+.card.glow-border {
+    position: relative;
+}
+
+.card.glow-border::before {
+        content: "";
+        position: absolute;
+        top: 0.45px;
+        left: 0.45px;
+        width: calc(100% + -0.45px);
+        height: calc(100% + 0.45px);
+        border: 2px solid transparent;
+        border-radius: 7px;
+        animation: glow_animation 1.5s infinite alternate;
+    }
+
+/* Define the glow animation */
+@keyframes glow_animation {
+    0% {
+        box-shadow: 0 0 5px var(--glow-color); /* Use the color variable */
+    }
+
+    100% {
+        box-shadow: 0 0 9px var(--glow-color), 0 0 13px var(--glow-color); /* Use the color variable */
+    }
+}
+
+/* Apply specific colors to the common class */
+.card.glow-border-success::before {
+    box-shadow: 0 0 20px var(--glow-color-success);
+    --glow-color: var(--glow-color-success);
+}
+
+.card.glow-border-danger::before {
+    box-shadow: 0 0 20px var(--glow-color-danger);
+    --glow-color: var(--glow-color-danger);
+}
+
+.card.glow-border-info::before {
+    box-shadow: 0 0 20px var(--glow-color-info);
+    --glow-color: var(--glow-color-info);
+}
+
+.card.glow-border-warning::before {
+    box-shadow: 0 0 20px var(--glow-color-warning);
+    --glow-color: var(--glow-color-warning);
+}
+
+
+
+
+.carousel-indicators {
+   border-radius: 100%;
+}
+
+.carousel-indicators .active {
+    background-color: rgb(111, 191, 76);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+
+

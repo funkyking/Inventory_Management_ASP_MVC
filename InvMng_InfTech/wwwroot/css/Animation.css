@@ -1,0 +1,14 @@
+﻿
+/*Multiple rotate animation*/
+
+.rotating-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotating-icon:hover {
+    transform: rotate(90deg);
+}
+
+
+
+

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<InvMng_InfTech.Models.Items>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<body>
+    <header>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong></strong>@TempData["AlertMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        <h1 class="text-center">Inventory
+            <i class="fa-solid fa-clipboard-list"></i>
+            </h1> <br>
+
+        
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("Create", "Items")">
+                <i class="fa-solid fa-plus"></i>
+                <span class="ml-2">New Item</span>
+             </button>
+        </div>
+    </header>
+
+    
+
+    <table class="table table-striped table-hover">
+        <thead class="table table-info">
+        <tr>
+            <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.PartName)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.DateAdded)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.UserThatAdded)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr class="table table-striped">
+                <td>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.PartName)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.DateAdded)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.UserThatAdded)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("Edit", "Items", new { id = item.Id })">Edit</button>
+
+                    |
+
+                    <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("Details", "Items", new {id = item.Id})">
+                        Details
+                    </button>
+
+                    |
+
+                    <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("Delete", "Items", new {id = item.Id})">
+                        Delete
+                    </button>
+
+                    <!-- Sample Button Call-->
+                    @*<a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+   @* <p>  <a asp-action="Create">Create New</a> </p>*@
+
+
+    <!-- BootStrap Modal PopUp -->
+    <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- The item page content will be loaded here -->
+                    <div id="itemModalContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section Scripts {
+        <script>
+        $(function () {
+            $('#itemModal').on('show.bs.modal', function (e) {
+                var url = $(e.relatedTarget).data('bs-url');
+                $('#itemModalContainer').load(url);
+            });
+        });
+        </script>
+    }
+
+    
+
+</body>
+
+
+
+
+
+

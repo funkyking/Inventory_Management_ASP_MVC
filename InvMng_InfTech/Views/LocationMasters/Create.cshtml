@@ -1,0 +1,66 @@
+﻿@model InvMng_InfTech.Models.Location.LocationMaster
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+{ <h2 class="mt-2 mb-2">New Location</h2> }
+else
+{ <h2 class="mt-2 mb-2">Edit Location</h2> }
+
+<hr class="mb-2">
+<div class="d-flex justify-content-end align-items-center mb-lg-5">
+    <a asp-action="Index" class="btn btn-secondary btn-floating"><i class="fas fa-arrow-left"></i></a>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card shadow p-4 mb-4">
+            <div class="mb-4 text-center">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt fa-4x"></i>
+                    <p class="mt-2 mb-4">Click here to select location</p>
+                </div>
+            </div>
+
+            <form asp-action="@(TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"] ? "Edit" : "Create")">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Location" class="form-label">Location</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <input asp-for="Location" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                        <input asp-for="Description" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group d-grid gap-2 col-6 mx-auto">
+                    @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+                    {
+                        <input type="submit" value="Save" class="btn btn-secondary" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    }
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

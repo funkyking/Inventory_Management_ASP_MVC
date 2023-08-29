@@ -1,0 +1,102 @@
+﻿@model IEnumerable<InvMng_InfTech.Models.Masters.SupplyMaster>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card mt-5">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 flex-grow-1 text-center">List of Suppliers</h5>
+        <a asp-action="Create" class="btn btn-dark"><i class="fa-solid fa-boxes-packing fa-beat" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="card-body">
+        <div class="table-container">
+            <table id="myTable" class="table table-bordered datatable max-width-table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupplierName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Representative)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Industry)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Modified)
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupplierName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Representative)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Industry)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Modified)
+                            </td>
+                            <td>
+                                <button asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-edit btn-sm"></i>
+                                </button>
+                                <button asp-action="Details" asp-route-id="@item.ID" class="btn btn-success btn-sm">
+                                    <i class="fa fa-eye btn-sm"></i>
+                                </button>
+                                <button asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash btn-sm"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+﻿@model InvMng_InfTech.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Use DataTable Css*@
+<link rel="stylesheet" href="~/css/DataTable.css" asp-append-version="true">
+<link rel="stylesheet" href="~/css/Views/Dashboard/Dashboard.css" asp-append-version="true">
+
+
+<div class="container-fluid">
+    <h1 class="page_header">Dashboard</h1>
+
+    @*Display The Highest and Lowest Stock*@
+
+
+    <div class="row top_header_container">
+        <div class="col-auto">
+            <div class="card mb-3 glow-border glow-border-warning header_card">
+                <div class="card-header bg-primary text-white">
+                    Most Bought
+                    <i class="fa-solid fa-fire fa-fade" style="color: #ffd800;"></i>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="row">
+                        <h4 class="card-title col-auto bold_text">
+                            @Model.LatestStock.PartName
+                            
+                        </h4>
+                        <p class="card-text text-end">
+                            @Model.LatestStock.Brand<br>
+                            @Model.LatestStock.Quantity /Pcs<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <div class="card mb-3 glow-border glow-border-info header_card">
+                <div class="card-header bg-primary text-white">
+                    Latest
+                    <i class="fa-regular fa-star fa-flip" style="color: #0080ff;"></i>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="row">
+                        <h4 class="card-title text-start col-auto bold_text">
+                            @Model.LatestStock.PartName
+                        </h4>
+                        <p class="card-text text-end justify-content-end">
+                            @Model.LatestStock.Brand<br>
+                            @Model.LatestStock.Quantity /Pcs<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <div class="card  mb-3 glow-border glow-border-success header_card">
+                <div class="card-header bg-primary text-white">
+                    Highest
+                    <i class="ms-1 fa-solid fa-arrow-trend-up fa-bounce fa-xs" style="color: #70f056;"></i>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="row">
+                        <h4 class="card-title text-start col-auto bold_text">
+                            @Model.HighestStock.PartName
+                        </h4>
+                        <p class="card-text text-end justify-content-end">
+                            @Model.HighestStock.Brand<br>
+                            @Model.HighestStock.Quantity /Pcs<br>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <div class="card mb-3 glow-border glow-border-danger header_card">
+                <div class="card-header bg-primary text-white">
+                    Lowest
+                    <i class="fa-solid fa-arrow-trend-down fa-fade" style="color: #ff0000;"></i>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="row">
+                        <h4 class="card-title text-start col-auto bold_text">
+                            @Model.LowestStock.PartName
+                        </h4>
+                        <p class="card-text text-end justify-content-end">
+                            @Model.LowestStock.Brand<br>
+                            @Model.LowestStock.Quantity /Pcs<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-xl">
+
+        
+
+        
+
+    </div>
+
+
+    <div class="container-sm mx-auto">
+        <div id="dashboardCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    
+                    <div class="bg-light p-3 rounded">
+                        <h3 class="mb-4">Expensive Order</h3>
+                        <div class="mb-3">
+                            <h5>@Model.LatestCustomerOrder.Customer.Name</h5>
+                            <p class="mb-0">OrderId: @Model.LatestCustomerOrder.OrderId</p>
+                            <p class="mb-0">Date: @Model.LatestCustomerOrder.OrderDate</p>
+                            <p>Amount: RM @Model.LatestCustomerOrder.TotalAmount</p>
+                        </div>
+                        <div class="accordion justify-content-center" id="customerWithMostAccordion" style="width: 500px;">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="customerWithMostHeader">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#customerWithMostCollapse" aria-expanded="true" aria-controls="customerWithMostCollapse">
+                                        Items
+                                    </button>
+                                </h2>
+                                <div id="customerWithMostCollapse" class="accordion-collapse collapse" aria-labelledby="customerWithMostHeader" data-bs-parent="#customerWithMostAccordion">
+                                    <div class="accordion-body" style="max-height: 200px; overflow-y: auto;">
+                                        @foreach (var item in Model.CustomerWithMostOrderItems)
+                                        {
+                                            <div class="row d-flex border-bottom">
+                                                <div class="col-6">
+                                                    @item.PartId
+                                                </div>
+                                                <div class="col-6 text-end">
+                                                    Qty: @item.Quantity
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <br>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    
+                    <div class="bg-light p-3 rounded">
+                        <h3 class="mb-4">Latest Order</h3>
+                        <div class="mb-3">
+                            <h5>@Model.LatestCustomerOrder.Customer.Name</h5>
+                            <p class="mb-0">OrderId: @Model.LatestCustomerOrder.OrderId</p>
+                            <p class="mb-0">Date: @Model.LatestCustomerOrder.OrderDate</p>
+                            <p>Amount: RM @Model.LatestCustomerOrder.TotalAmount</p>
+                        </div>
+                        <div class="accordion justify-content-center" id="LatestOrderAccordion" style="width: 500px;">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="LatestOrderHeader">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#LatestOrderCollapse" aria-expanded="true" aria-controls="customerWithMostCollapse">
+                                        Items
+                                    </button>
+                                </h2>
+                                <div id="LatestOrderCollapse" class="accordion-collapse collapse" aria-labelledby="LatestOrderHeader" data-bs-parent="#LatestOrderAccordion">
+                                    <div class="accordion-body" style="max-height: 200px; overflow-y: auto;">
+                                        @foreach (var item in Model.LatestCustomerItems)
+                                        {
+                                            
+                                            <div class="row d-flex border-bottom">
+                                                <div class="col-6">
+                                                    @item.PartId
+                                                </div>
+                                                <div class="col-6 text-end">
+                                                    Qty: @item.Quantity
+                                                </div>
+                                            </div>
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#dashboardCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#dashboardCarousel" data-bs-slide-to="1" ></button>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#dashboardCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#dashboardCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+

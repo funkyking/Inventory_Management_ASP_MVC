@@ -1,0 +1,83 @@
+﻿/* Custom styles for DataTables */
+.dataTables_wrapper {
+    padding-top: 20px;
+    padding-bottom: 1px;
+}
+
+.dataTables_length, .dataTables_filter {
+    padding-bottom: 1px;
+}
+
+.dataTables_length select {
+    height: 30px; /* Adjust height */
+}
+
+.dataTables_filter input {
+    height: 10px; /* Adjust height */
+}
+
+.dataTables_paginate{
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.dataTables_info {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+
+
+/* Define CSS class to set maximum width for the table */
+.max-width-table th,
+.max-width-table td {
+    min-width: 60px;
+    max-width: 80px; /* Set the desired maximum width for th and td */
+    white-space: nowrap; /* Prevent wrapping of content */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+/* Adjust the last column width and prevent ellipsis */
+.max-width-table th:last-child,
+.max-width-table td:last-child {
+    width: 100px; /* Set the width as needed */
+    max-width: none; /* Reset the max-width */
+    white-space: normal; /* Allow normal wrapping of content */
+    text-align: center; /* Align the content to the start of the column */
+}
+
+
+
+
+/* Style for table header cells */
+#myTable thead th {
+    /* Background color of header cells */
+    /*background-color: #343a40; */
+
+    /* Font color of header text */
+    /*color: #ffffff; */
+}
+
+/* Style for even rows */
+#myTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+/* Style for odd rows */
+#myTable tbody tr:nth-child(odd) {
+    background-color: #ffffff; 
+}
+
+/* Hover effect for table rows */
+#myTable tbody tr:hover {
+    background-color: #cce5ff;
+}
+
+
+/* Centre the Top Header */
+.card-header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

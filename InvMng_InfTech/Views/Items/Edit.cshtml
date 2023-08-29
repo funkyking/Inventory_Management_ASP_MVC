@@ -1,0 +1,124 @@
+﻿@model InvMng_InfTech.Models.Items
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Items/_CreateEditLayout.cshtml";
+}
+
+<h1>Edit</h1>
+@*<p> User id= : @ViewData["UserID"]</p>*@
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            &#8203; <!-- Invisible zero-width space -->
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <input asp-for="Brand" class="form-control" />
+                </div>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PartName" class="control-label"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    &#8203; <!-- Invisible zero-width space -->
+                                    <i class="fa-solid fa-tags"></i>
+                                </div>
+                            </div>
+                            <input asp-for="PartName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="PartName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Quantity" class="control-label"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    &#8203; <!-- Invisible zero-width space -->
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                            </div>
+                            <input asp-for="Quantity" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DateAdded" class="control-label"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    &#8203; <!-- Invisible zero-width space -->
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                </div>
+                            </div>
+                            <input asp-for="DateAdded" class="form-control" id="dateAddedInput" readonly />
+                        </div>
+                        <span asp-validation-for="DateAdded" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="UserThatAdded" class="control-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    &#8203; <!-- Invisible zero-width space -->
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <input asp-for="UserThatAdded" class="form-control" value="@ViewData["UserID"]" readonly />
+                        </div>
+                        <span asp-validation-for="UserThatAdded" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!--This is used to mave the bottom button span width-->
+            <style>
+                .custom-btn-block {
+                    display: block;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+            </style>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary custom-btn-block" />
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+            document.getElementById('dateAddedInput').valueAsDate = new Date();
+        </script>
+}

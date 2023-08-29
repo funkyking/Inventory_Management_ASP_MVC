@@ -1,0 +1,24 @@
+# = done 
+- = Havent
+
+SupplierMaster (Need add Styling)
+#Index -  addtable and Update Ui
+#Create - addtable and Update Ui
+#Edit - Merged Create and Edit to One Page 
+-Delete -Need to add Modal PopUP
+-Details -Need to add Modal PopUP
+
+LocationMaster
+#Index - addtable and Update UI
+#Create - *Update Ui
+	>>Adding a placeholder to add Map Locating to Indicate the Space for the Location
+#Edit - Merged Create and Edit Page
+-Delete -Need to add Modal PopUP
+-Details -Need to add Modal PopUP
+
+Stock
+#Index - addTable and Update UI
+-Create -
+-Edit -
+-Delete -
+-Details -

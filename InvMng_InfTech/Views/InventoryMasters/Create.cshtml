@@ -1,0 +1,138 @@
+﻿@model InvMng_InfTech.Models.Masters.InventoryMaster
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="your-map-image-url" alt="Map" class="img-fluid mb-3">
+                        <p>Select a point on the map below:</p>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-map-marker-alt"></i> Select Point
+                        </button>
+                        <div class="form-group">
+                            <label asp-for="Location" class="control-label">
+                                <i class="fas fa-location-arrow"></i> Location
+                            </label>
+                            <input asp-for="Location" class="form-control" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubLocation" class="control-label">
+                            <i class="fas fa-map-pin"></i> SubLocation
+                        </label>
+                        <input asp-for="SubLocation" class="form-control" />
+                        <span asp-validation-for="SubLocation" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PartNumber" class="control-label"></label>
+                        <input asp-for="PartNumber" class="form-control" />
+                        <span asp-validation-for="PartNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PartName" class="control-label"></label>
+                        <input asp-for="PartName" class="form-control" />
+                        <span asp-validation-for="PartName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Brand" class="control-label"></label>
+                        <input asp-for="Brand" class="form-control" />
+                        <span asp-validation-for="Brand" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StockNew" class="control-label"></label>
+                        <input asp-for="StockNew" class="form-control" />
+                        <span asp-validation-for="StockNew" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StockUsed" class="control-label"></label>
+                        <input asp-for="StockUsed" class="form-control" />
+                        <span asp-validation-for="StockUsed" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Modified" class="control-label"></label>
+                        <input asp-for="Modified" class="form-control" />
+                        <span asp-validation-for="Modified" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PartNumber" class="control-label"></label>
+                <input asp-for="PartNumber" class="form-control" />
+                <span asp-validation-for="PartNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartName" class="control-label"></label>
+                <input asp-for="PartName" class="form-control" />
+                <span asp-validation-for="PartName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockNew" class="control-label"></label>
+                <input asp-for="StockNew" class="form-control" />
+                <span asp-validation-for="StockNew" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockUsed" class="control-label"></label>
+                <input asp-for="StockUsed" class="form-control" />
+                <span asp-validation-for="StockUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modified" class="control-label"></label>
+                <input asp-for="Modified" class="form-control" />
+                <span asp-validation-for="Modified" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubLocation" class="control-label"></label>
+                <input asp-for="SubLocation" class="form-control" />
+                <span asp-validation-for="SubLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
