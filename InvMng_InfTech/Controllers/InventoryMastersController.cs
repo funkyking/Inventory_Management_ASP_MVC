@@ -160,5 +160,66 @@ namespace InvMng_InfTech.Controllers
         {
           return (_context.InventoryMaster?.Any(e => e.ID == id)).GetValueOrDefault();
         }
+
+
+
+
+        //Suggestive Text
+        public IActionResult GetLocations(string term)
+        {
+            var locations = _context.LocationMaster
+                .Where(l => l.Location.Contains(term))
+                .Select(l => l.Location)
+                .Distinct().ToList();
+
+            return Json(locations);
+        }
+
+        public IActionResult GetSubLocations(string term)
+        {
+            var subLocations = _context.SubLocationMaster
+                .Where(sl => sl.SubLocation.Contains(term))
+                .Select(sl => sl.SubLocation)
+                .Distinct().ToList();
+
+            return Json(subLocations);
+        }
+
+        public IActionResult GetBrandName(string term)
+        {
+            var Brands = _context.InventoryMaster
+                .Where(bs => bs.Brand.Contains(term))
+                .Select(bs => bs.Brand)
+                .Distinct().ToList();
+
+            return Json(Brands);
+        }
+
+        public IActionResult GeneratePartNumber()
+        {
+
+            var nmbr = "0";
+            var random = new Random();
+            nmbr = random.Next(1, int.MaxValue).ToString();
+
+            while (_context.InventoryMaster.Any(nb => nb.PartNumber == nmbr))
+            {
+                nmbr = random.Next(1, int.MaxValue).ToString();
+            }
+            return Json(nmbr);
+
+        }
+
+        public IActionResult GetPartName(string term)
+        {
+            var partNames = _context.InventoryMaster
+                .Where(pn => pn.Brand.Contains(term))
+                .Select(pn => pn.PartName)
+                .Distinct().ToList();
+
+            return Json(partNames);
+        }
+
+
     }
 }

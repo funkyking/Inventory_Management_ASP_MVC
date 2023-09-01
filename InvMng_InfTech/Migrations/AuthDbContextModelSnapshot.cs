@@ -190,6 +190,36 @@ namespace InvMng_InfTech.Migrations
                     b.ToTable("InventoryMaster");
                 });
 
+            modelBuilder.Entity("InvMng_InfTech.Models.Masters.SubLocationMaster", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Modified Date");
+
+                    b.Property<string>("SubLocation")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid?>("SubLocationID")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SubLocationMaster");
+                });
+
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.SupplyMaster", b =>
                 {
                     b.Property<Guid>("ID")

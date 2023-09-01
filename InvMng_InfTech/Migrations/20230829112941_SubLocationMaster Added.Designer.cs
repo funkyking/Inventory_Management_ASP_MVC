@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvMng_InfTech.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230825030223_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230829112941_SubLocationMaster Added")]
+    partial class SubLocationMasterAdded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,6 +191,36 @@ namespace InvMng_InfTech.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("InventoryMaster");
+                });
+
+            modelBuilder.Entity("InvMng_InfTech.Models.Masters.SubLocationMaster", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Modified Date");
+
+                    b.Property<string>("SubLocation")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid?>("SubLocationID")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SubLocationMaster");
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.SupplyMaster", b =>

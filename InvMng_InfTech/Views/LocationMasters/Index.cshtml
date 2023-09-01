@@ -8,11 +8,14 @@
 
 
 <div class="card mt-5">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 flex-grow-1 text-center">locations</h5>
-        <a asp-action="Create" class="btn btn-dark"><i class="fa-solid fa-map-location-dot fa-beat" style="color: #ffffff;"></i></a>
-    </div>
+    
     <div class="card-body">
+        <div class="d-flex justify-content-end">
+            <a asp-action="Create" class="btn btn-outline-primary">
+                <i class="fa-solid fa-map-location-dot mr-md-4"></i>Add Location
+            </a>
+        </div>
+
         <div class="table-container">
             <table id="myTable" class="table table-bordered max-width-table" style="width:100%">
                 <thead>
@@ -45,15 +48,15 @@
                                 @Html.DisplayFor(modelItem => item.ModifiedDate)
                             </td>
                             <td>
-                                <button asp-action="Edit" asp-route-id="@item.LocationID" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-edit btn-sm"></i>
-                                </button>
-                                <button asp-action="Details" asp-route-id="@item.LocationID" class="btn btn-success btn-sm">
+                                <a asp-action="Edit" asp-route-id="@item.LocationID" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.LocationID" class="btn btn-success btn-sm">
                                     <i class="fa fa-eye btn-sm"></i>
-                                </button>
-                                <button asp-action="Delete" asp-route-id="@item.LocationID" class="btn btn-danger btn-sm">
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.LocationID" class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash btn-sm"></i>
-                                </button>
+                                </a>
                             </td>
                         </tr>
                     }

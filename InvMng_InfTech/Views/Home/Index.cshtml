@@ -6,38 +6,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <header>
-        <h1>Welcome to the Inventory Management App</h1>
-    </header>
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Efficient Inventory Management</h2>
-                <p>Streamline your inventory processes and stay organized.</p>
-                <a href="#" class="btn btn-primary">Get Started</a>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Dashboard</h1>
+            @*<ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Charts</li>
+            </ol>*@
+            <div class="card mb-4">
+                <div class="card-body">    
+                </div>
             </div>
-            <img src="inventory-hero.jpg" alt="Inventory Hero Image">
-        </section>
-        <section class="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li>
-                    <img src="feature-1.jpg" alt="Feature 1">
-                    <h3>Item Tracking</h3>
-                    <p>Track your inventory items with ease and accuracy.</p>
-                </li>
-                <li>
-                    <img src="feature-2.jpg" alt="Feature 2">
-                    <h3>Inventory Alerts</h3>
-                    <p>Receive notifications for low stock items and reordering.</p>
-                </li>
-                <li>
-                    <img src="feature-3.jpg" alt="Feature 3">
-                    <h3>Reporting & Analytics</h3>
-                    <p>Generate reports and gain valuable insights about your inventory.</p>
-                </li>
-            </ul>
-        </section>
+
+
+            <div class="row mb-4">
+
+                <div class="col-lg-6">
+                   <div class="card d-flex flex-column h-100">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar me-1"></i>
+                            Bar Chart
+                        </div>
+                        <div class="container mt-auto">
+                           <div class="card-body mt-auto"><canvas id="myBarChart" >
+                        </div>
+                        </canvas></div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card d-flex flex-column h-100">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-1"></i>
+                            Area Chart
+                        </div>
+                        <div class="container mt-auto">
+                            <div class="card-body"><canvas id="myAreaChart"></canvas></div>
+                        </div>
+                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="row">
+                 <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-pie me-1"></i>
+                            Pie Chart
+                        </div>
+                        <div class="card-body"><canvas id="myPieChart"></canvas></div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar me-1"></i>
+                            Polar Area Chart
+                        </div>
+                        <div class="card-body"><canvas id="myPolarAreaChart">
+                        </canvas></div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
     </main>
 </body>
 </html>
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+        const ctx = document.getElementById('myBarChart');
+
+        new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
+    </script>
+
+    <script>
+        // Sample data for the area chart
+        var chartData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Sales',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: [10, 20, 30, 25, 40, 35, 50]
+            }]
+        };
+
+        // Get the canvas element
+        var atx = document.getElementById('myAreaChart').getContext('2d');
+
+        // Create the area chart
+        var myAreaChart = new Chart(atx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Sales'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        new Chart(document.getElementById("myPieChart"), {
+            type : 'pie',
+        	data : {
+                labels: ['Panasonic', 'Haier', 'Samsung', 'Toshiba', 'Amkor', 'Adobe'],
+                datasets : [ {
+        			data : [ 418, 263, 434, 586, 332 , 59],
+        		} ]
+        	},
+        	options : {
+        		title : {
+        			display : true,
+        			text : 'Chart JS Pie Chart Example'
+        		}
+        	}
+        });
+    </script>
+
+
+    <script>
+        // Sample data for the polar area chart
+        var chartData = {
+            labels: ['Panasonic', 'Haier', 'Samsung', 'Toshiba', 'Amkor', 'Adobe'],
+            datasets: [{
+                data: [418, 263, 434, 586, 332, 59],
+                backgroundColor: ['rgb(255, 99, 132)', 
+                                    'rgb(54, 162, 235)', 
+                                    'rgb(255, 206, 86)', 
+                                    'rgb(75, 192, 192)', 
+                                    'rgb(153, 102, 255)'],
+                borderWidth: 1
+            }]
+        };
+
+        // Get the canvas element
+        var rtx = document.getElementById('myPolarAreaChart').getContext('2d');
+
+        // Create the polar area chart
+        var myPolarAreaChart = new Chart(rtx, {
+            type: 'polarArea',
+            data: chartData,
+            options: {
+                scales: {
+                    r: {
+                        suggestedMin: 0
+                    }
+                }
+            }
+        });
+    </script>
+
+}
+
+
+
+

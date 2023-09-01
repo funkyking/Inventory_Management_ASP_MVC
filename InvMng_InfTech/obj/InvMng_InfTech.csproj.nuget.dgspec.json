@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\Paul Projects\\Template-Matching---OpenCv\\InvWebApp2\\InvMng_InfTech\\InvMng_InfTech.csproj": {}
+    "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\InvMng_InfTech.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\Paul Projects\\Template-Matching---OpenCv\\InvWebApp2\\InvMng_InfTech\\InvMng_InfTech.csproj": {
+    "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\InvMng_InfTech.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Paul Projects\\Template-Matching---OpenCv\\InvWebApp2\\InvMng_InfTech\\InvMng_InfTech.csproj",
+        "projectUniqueName": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\InvMng_InfTech.csproj",
         "projectName": "InvMng_InfTech",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Paul Projects\\Template-Matching---OpenCv\\InvWebApp2\\InvMng_InfTech\\InvMng_InfTech.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Paul Projects\\Template-Matching---OpenCv\\InvWebApp2\\InvMng_InfTech\\obj\\",
+        "projectPath": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\InvMng_InfTech.csproj",
+        "packagesPath": "C:\\Users\\Paul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Paul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,6 +81,10 @@
             "Stripe.net": {
               "target": "Package",
               "version": "[41.24.0, )"
+            },
+            "System.Data.DataSetExtensions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             }
           },
           "imports": [
@@ -103,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

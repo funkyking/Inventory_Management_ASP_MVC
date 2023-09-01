@@ -47,6 +47,7 @@ $(document).ready(function () {
 });
 
 
+
 $(document).ready(function () {
     $('#myTable').DataTable({
         outerWidth: false,
@@ -56,11 +57,13 @@ $(document).ready(function () {
         searching: true,    // Enable search bar
         ordering: true,     // Enable column sorting
         responsive: true,   // Make table responsive
-        lengthMenu: [5, 10, 25, 50, 75, 100], // Entries dropdown options
-        pageLength: 5, // Default number of rows per page
+        lengthMenu: [10, 15, 25, 50, 75, 100], // Entries dropdown options
+        pageLength: 10, // Default number of rows per page
+        
         language: {
             search: "", // Change search label
-            lengthMenu: "Show _MENU_ entries", // Change entries label
+            searchPlaceholder: "Search...",
+            lengthMenu: "_MENU_", // Change entries label
             info: "Showing _START_ of _TOTAL_ entries", // Change info label
             paginate: {
                 first: "<<",
@@ -68,10 +71,47 @@ $(document).ready(function () {
                 next: ">",
                 previous: "<"
             }, // Change pagination labels
+
         },
+        dom: "l<'row'<'col-md-6'B><'col-md-6 text-end'f>>" +
+            "<rt>" +
+            "<'row'<'col-md-6'i><'col-md-6'p>>",
+        buttons: [
+            {
+                extend: 'collection',
+                text: '<i class="fa-solid fa-file-export"></i> Export',
+                className: 'btn-success btn-block export-btn',
+                style: 'color: white;',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        ],
+        initComplete: function (settings, json) {
+            // Add a container for the export buttons
+            $('.dt-buttons').wrap('<div class="button-group-container"></div>');
+
+
+            // Add the export buttons after the initialization
+            var colvisbtn = [
+                {
+                    extend: 'colvis', // Adding 'colvis' button
+                    text: '<i class="fa-solid fa-table-columns"></i> Columns',
+                    className: 'btn-light btn-block colvis-btn',
+                    columns: ':not(.noVis)', // Exclude columns with class 'noVis'
+                    postfixButtons: ['colvisRestore'] // Add the 'colvisRestore' button
+                }
+            ];
+            new $.fn.dataTable.Buttons(settings, {
+                buttons: colvisbtn
+            }).container().appendTo($('.button-group-container'));
+
+            // Add spacing between buttons
+            $('.dt-buttons, .button-group-container .btn-success').addClass('button-spacing');
+        }
 
     });
 });
+
+
 
 
 // Sidenav Toggle

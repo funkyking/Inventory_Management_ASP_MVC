@@ -9,6 +9,7 @@ namespace InvMng_InfTech.Models.Masters
         [Column("Part ID")]
         public Guid ID { get; set; }
 
+
         [Required]
         public string? PartNumber { get; set; }
 
