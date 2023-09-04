@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\Forms.js"
     },
     {
+      "Id": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\wwwroot\\js\\InventoryMaster\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\InventoryMaster\\scripts.js"
+    },
+    {
       "Id": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\wwwroot\\js\\Orders\\orderPlacement.js",
       "PackagePath": "staticwebassets\\js\\Orders\\orderPlacement.js"
     },

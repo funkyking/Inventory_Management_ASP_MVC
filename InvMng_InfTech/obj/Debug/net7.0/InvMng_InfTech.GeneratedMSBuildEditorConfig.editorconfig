@@ -76,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/StockIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xTdG9ja0luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/_CreateEditLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcX0NyZWF0ZUVkaXRMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Create.cshtml]
@@ -154,6 +154,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_AlertPartial.cshtml.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGVydFBhcnRpYWwuY3NodG1sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ModalViewPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbFZpZXdQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Oj6K/3YmVpKqyKuItmMzLEQ52nDXZjoQnZPLjPXayLU=",
+  "Hash": "qlaGdhvFlLYr9unFVOmPkQnNHbDfY5Rqy0I7ouHX8Ps=",
   "Source": "InvMng_InfTech",
   "BasePath": "_content/InvMng_InfTech",
   "Mode": "Default",
@@ -1205,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Forms.js"
+    },
+    {
+      "Identity": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\wwwroot\\js\\InventoryMaster\\scripts.js",
+      "SourceId": "InvMng_InfTech",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\wwwroot\\",
+      "BasePath": "_content/InvMng_InfTech",
+      "RelativePath": "js/InventoryMaster/scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\InventoryMaster\\scripts.js"
     },
     {
       "Identity": "C:\\Users\\Paul\\Desktop\\Inventory Management (Infinite Solutions)\\Inventory_Management_ASP_MVC\\InvMng_InfTech\\wwwroot\\js\\notify.min.js",

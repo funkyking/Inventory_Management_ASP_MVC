@@ -22,3 +22,8 @@ Stock
 -Edit -
 -Delete -
 -Details -
+
+
+-Fixing the modal popup for details,delete,info
+--Works gotta use this [Layout = "~/Views/Items/_CreateEditLayout.cshtml";]
+Stock in and Stock out forms

@@ -163,8 +163,8 @@ namespace InvMng_InfTech.Controllers
 
 
 
-
-        //Suggestive Text
+        #region Suggestive Text
+        
         public IActionResult GetLocations(string term)
         {
             var locations = _context.LocationMaster
@@ -213,12 +213,27 @@ namespace InvMng_InfTech.Controllers
         public IActionResult GetPartName(string term)
         {
             var partNames = _context.InventoryMaster
-                .Where(pn => pn.Brand.Contains(term))
+                .Where(pn => pn.PartName.Contains(term))
                 .Select(pn => pn.PartName)
                 .Distinct().ToList();
 
             return Json(partNames);
         }
+
+        #endregion
+
+
+        #region Stock In and Out
+
+        // GET: InventoryMasters/Create
+        public IActionResult StockIn()
+        {
+            return View();
+        }
+
+        #endregion
+
+
 
 
     }

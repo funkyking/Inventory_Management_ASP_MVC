@@ -39,4 +39,6 @@ public class AuthDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<InvMng_InfTech.Models.Masters.InventoryMaster> InventoryMaster { get; set; } = default!;
     
     public DbSet<InvMng_InfTech.Models.Masters.SubLocationMaster> SubLocationMaster { get; set; } = default!;
+
+    public DbSet<InvMng_InfTech.Models.Masters.LogMaster> LogMaster { get; set; } = default!;
 }
