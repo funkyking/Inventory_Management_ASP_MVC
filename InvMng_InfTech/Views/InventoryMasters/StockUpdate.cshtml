@@ -1,0 +1,117 @@
+﻿@model InvMng_InfTech.Models.Masters.InventoryMaster
+
+@{
+    ViewData["Title"] = "StockIn";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ModalViewPartial.cshtml";
+}
+
+
+
+<div class="d-flex justify-content-center mt-4">
+    <div class="d-flex justify-content-center">
+        <form asp-action="UpdateStock">
+            <!-- Stock In/Out -->
+            <div class="mb-3">
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input mr-2" type="checkbox" id="stockToggle" name="stockInOut">
+                    <label class="form-check-label" for="stockToggle">
+                        <!-- Icon container with a unique class -->
+                        <span class="toggle-text" style="padding-left: 20px;">Stock In</span>
+                        <i class="fa-solid fa stock-icon fa-truck-ramp-box"></i>
+                    </label>
+                </div>
+                <input type="hidden" id="hiddenStockInOut" name="stockInOut" value="Stock In">
+            </div>
+
+            <!-- Part Name -->
+            <div class="mb-3">
+                <label for="partName" class="form-label">Part Name</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                    <input type="text" class="form-control" id="partName" name="partName">
+                </div>
+            </div>
+            <!-- Part Number -->
+            <div class="mb-3">
+                <label for="partNumber" class="form-label">Part Number</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                    <input type="text" class="form-control" id="Get_PartNumber" name="partNumber" style="background-color: #f2f4f7" readonly>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    <input type="text" class="form-control" id="location" name="location">
+                </div>
+            </div>
+            <!-- SubLocation -->
+            <div class="mb-3">
+                <label for="subLocation" class="form-label">SubLocation</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+                    <input type="text" class="form-control" id="subLocation" name="subLocation">
+                </div>
+            </div>
+            <!-- Supplier -->
+            <div class="mb-3">
+                <label for="supplier" class="form-label">Supplier</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-truck"></i></span>
+                    <input type="text" class="form-control" id="supplier" name="supplier">
+                </div>
+            </div>
+            <!-- Remark -->
+            <div class="mb-3">
+                <label for="remark" class="form-label">Remark</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                    <textarea class="form-control" id="remark" name="remark"></textarea>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto shadow">
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/js/InventoryMaster/scripts.js" asp-append-version="true"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            const iconClassMap = {
+                'Stock In': 'fa-truck-ramp-box',
+                'Stock Out': 'fa-truck-fast'
+            };
+
+            $('#stockToggle').change(function () {
+                const isChecked = this.checked;
+                const toggleText = $('.toggle-text');
+                const hiddenInput = $('#hiddenStockInOut');
+                const stockIcon = $('.stock-icon'); // Select the unique icon container
+
+                if (isChecked) {
+                    toggleText.text('Stock Out');
+                    stockIcon.removeClass('fa-truck-ramp-box').addClass('fa-truck-fast');
+                } else {
+                    stockIcon.removeClass('fa-truck-fast').addClass('fa-truck-ramp-box');
+                    toggleText.text('Stock In');
+                }
+
+                hiddenInput.val(toggleText.text());
+            });
+        });
+
+
+
+    </script>
+}

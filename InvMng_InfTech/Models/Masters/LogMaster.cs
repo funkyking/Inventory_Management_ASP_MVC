@@ -6,7 +6,7 @@ namespace InvMng_InfTech.Models.Masters
     public class LogMaster
     {
         [Key]
-        public int ID { get; set; }
+        public Guid ID { get; set; }
 
         
         // User Input
@@ -22,14 +22,14 @@ namespace InvMng_InfTech.Models.Masters
 
         // Controller Generates
         public DateTime LogDate { get; set; }
-        public Guid PartID { get; set; }       
-        public Guid SupplierID { get; set; }               
+        public Guid? PartID { get; set; }       
+        public Guid? SupplierID { get; set; }               
         public int? ExistingStockNew { get; set; }
         public int? ExistingStockUsed { get; set; }
         public int? StockNew { get; set; }
         public int? StockUsed { get; set; }
-        public Guid LocationID { get; set; }       
-        public Guid SubLocationID { get; set; }       
+        public Guid? LocationID { get; set; }       
+        public Guid? SubLocationID { get; set; }       
         public string? IssuedBy { get; set; }
         
     }

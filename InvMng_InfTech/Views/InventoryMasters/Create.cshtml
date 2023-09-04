@@ -7,17 +7,10 @@
 }
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-<style>
-    .ui-autocomplete {
-        z-index: 1060; /* Set a value higher than the modal's z-index */
-    }
-</style>
-
+*@
 
 <div class="mt-4 mb-4">
     <div class="d-flex justify-content-sm-start">
@@ -49,7 +42,7 @@
                             <label asp-for="Location" class="control-label">Location</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-map"></i></span>
-                                <input asp-for="Location" id="locationInput" class="form-control" />
+                                <input asp-for="Location" id="location" class="form-control" />
                             </div>
                             <span asp-validation-for="Location" class="text-danger"></span>
                         </div>
@@ -57,7 +50,7 @@
                             <label asp-for="SubLocation" class="control-label">Sub Location</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-location-crosshairs"></i></span>
-                                <input asp-for="SubLocation" id="subLocationInput" class="form-control" />
+                                <input asp-for="SubLocation" id="subLocation" class="form-control" />
                             </div>
                             <span asp-validation-for="SubLocation" class="text-danger"></span>
                         </div>
@@ -92,7 +85,7 @@
                             <label asp-for="Brand" class="control-label">Brand</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
-                                <input asp-for="Brand" id="brandInput" class="form-control" />
+                                <input asp-for="Brand" id="brand" class="form-control" />
                             </div>
                             <span asp-validation-for="Brand" class="text-danger"></span>
                         </div>
@@ -101,7 +94,7 @@
                             <label asp-for="PartNumber" class="control-label">Part Number</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                                <input asp-for="PartNumber" id="partNumberInput" class="form-control" readonly/>
+                                <input asp-for="PartNumber" id="partNumber" class="form-control" readonly/>
                                 <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
                             </div>
                             <span asp-validation-for="PartNumber" class="text-danger"></span>
@@ -110,7 +103,7 @@
                             <label asp-for="PartName" class="control-label">Part Name</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-file-alt"></i></span>
-                                <input asp-for="PartName" id="partNameInput" class="form-control" />
+                                <input asp-for="PartName" id="partName" class="form-control" />
                             </div>
                             <span asp-validation-for="PartName" class="text-danger"></span>
                         </div>

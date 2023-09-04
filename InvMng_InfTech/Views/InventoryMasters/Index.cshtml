@@ -9,14 +9,10 @@
 
 
 <style>
-    .btn-equal-width {
-        width: 110px;
-    }
     .custom-button {
         display: inline-block;
         margin-left: 10px; /* Adjust the margin as needed */
     }
-
 </style>
 
 
@@ -29,11 +25,8 @@
             </div>
             <div class="card-body d-flex flex-column align-items-center">
             <div class="d-flex flex-column flex-wrap justify-content-between align-items-center">
-                <a type="button" class="btn btn-primary mb-2 btn-block btn-equal-width" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("StockIn", "InventoryMasters")">
-                    <i class="fa-solid fa-cart-flatbed"></i> Stock In
-                </a>
-                <a type="button" class="btn btn-danger mb-2 btn-block btn-equal-width" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("StockIn", "InventoryMasters")">
-                   <i class="fa-solid fa-truck-ramp-box"></i> Stock Out
+                <a type="button" class="btn btn-primary mb-2 btn-block" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("StockUpdate", "InventoryMasters")">
+                    <i class="fa-solid fa-cart-flatbed"></i> UpdateStock
                 </a>
             </div>
         </div>
@@ -46,11 +39,6 @@
             <div class="card-body">
                 <div class="container d-flex justify-content-end">
                     
-                    <a asp-action="Create" class="btn btn-outline-primary btn-block">
-                        <i class="fa-solid fa-box"></i> New Item
-                    </a>
-
-
                     <a type="button" class="btn btn-outline-primary btn-block" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("Create", "InventoryMasters")">
                         <i class="fa-solid fa-box"></i> New Item
                     </a>
@@ -172,8 +160,16 @@
     <script>
         $(function () {
             $('#itemModal').on('show.bs.modal', function (e) {
+                // Clear the existing content in the modal
+                $('#itemModalContainer').empty();
+
                 var url = $(e.relatedTarget).data('bs-url');
                 $('#itemModalContainer').load(url);
+            });
+
+            $('#itemModal').on('hidden.bs.modal', function () {
+                // Clear the container when the modal is dismissed
+                $('#itemModalContainer').empty();
             });
         });
     </script>

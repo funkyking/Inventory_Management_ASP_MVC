@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvMng_InfTech.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230903232428_Log")]
-    partial class Log
+    [Migration("20230904060707_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,11 +195,9 @@ namespace InvMng_InfTech.Migrations
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.LogMaster", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("ExistingStockNew")
                         .HasColumnType("int");
@@ -213,13 +211,13 @@ namespace InvMng_InfTech.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("LocationID")
+                    b.Property<Guid?>("LocationID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("LogDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PartID")
+                    b.Property<Guid?>("PartID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PartName")
@@ -243,13 +241,13 @@ namespace InvMng_InfTech.Migrations
                     b.Property<string>("SubLocation")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("SubLocationID")
+                    b.Property<Guid?>("SubLocationID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Supplier")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("SupplierID")
+                    b.Property<Guid?>("SupplierID")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ID");

@@ -1,0 +1,100 @@
+﻿@model InvMng_InfTech.Models.Masters.PartsMaster
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_ModalViewPartial.cshtml";
+}
+
+<form asp-action="PartsCreate">
+    
+    <!-- Brand -->
+    <div class="mb-3">
+        <label for="partName" class="form-label">Brand</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-cube"></i></span>
+            <input type="text" class="form-control" id="Brand" name="Brand">
+        </div>
+    </div>
+
+    <!-- Part Name -->
+    <div class="mb-3">
+        <label asp-for="PartName" class="control-label">PartName</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-cube"></i></span>
+            <input asp-for="PartName" id="partName" class="form-control" >
+        </div>
+    </div>
+
+    <!-- Part Number -->
+    <div class="mb-3">
+        <label asp-for="PartNumber" class="control-label">Part Number</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-cube"></i></span>
+            <input asp-for="PartNumber" id="partNumber" class="form-control" readonly />
+            <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
+        </div>
+        <span asp-validation-for="PartNumber" class="text-danger"></span>
+    </div>
+
+    <!-- Min New -->
+    <div class="mb-3">
+        <label asp-for="MinNew" class="control-label">Min New</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+            <input asp-for="MinNew" id="minnew" class="form-control">
+        </div>
+        <span asp-validation-for="MinNew" class="text-danger"></span>
+    </div>
+
+    <!-- Min Used -->
+    <div class="mb-3">
+        <label asp-for="MinUsed" class="control-label">Min Used</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+            <input asp-for="MinUsed" id="minused" class="form-control">
+        </div>
+        <span asp-validation-for="MinUsed" class="text-danger"></span>
+    </div>
+
+    <!-- Bin -->
+    <div class="mb-3">
+        <label asp-for="Bin" class="control-label">Bin</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+            <input asp-for="Bin" id="Bin" class="form-control">
+        </div>
+        <span asp-validation-for="Bin" class="text-danger"></span>
+    </div>
+    
+
+
+    <!-- Description -->
+    <div class="mb-3">
+        <label asp-for="Description" class="control-label">Description</label>
+        <label for="remark" class="form-label">Remark</label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+            <input asp-for="Description" id="description" class="form-control">
+        </div>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto shadow">
+        <button type="submit" class="btn btn-primary btn-block">Add Part</button>
+    </div>
+</form>
+
+
+
+
+
+@section scripts {
+
+    <script src="~/js/InventoryMaster/scripts.js" asp-append-version="true"></script>
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("generatePartNumber").click();
+        });
+    </script>
+}

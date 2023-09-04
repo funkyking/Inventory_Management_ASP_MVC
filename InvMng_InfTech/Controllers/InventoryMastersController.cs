@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InvMng_InfTech.Data;
 using InvMng_InfTech.Models.Masters;
+using System.Diagnostics;
 
 namespace InvMng_InfTech.Controllers
 {
@@ -187,7 +188,7 @@ namespace InvMng_InfTech.Controllers
 
         public IActionResult GetBrandName(string term)
         {
-            var Brands = _context.InventoryMaster
+            var Brands = _context.PartsMaster
                 .Where(bs => bs.Brand.Contains(term))
                 .Select(bs => bs.Brand)
                 .Distinct().ToList();
@@ -212,7 +213,7 @@ namespace InvMng_InfTech.Controllers
 
         public IActionResult GetPartName(string term)
         {
-            var partNames = _context.InventoryMaster
+            var partNames = _context.PartsMaster
                 .Where(pn => pn.PartName.Contains(term))
                 .Select(pn => pn.PartName)
                 .Distinct().ToList();
@@ -220,16 +221,126 @@ namespace InvMng_InfTech.Controllers
             return Json(partNames);
         }
 
+        public IActionResult GetPartNumber(string term)
+        {
+            var partNumber = _context.PartsMaster
+                .Where(pn => pn.PartName == term)
+                .Select(pn => pn.PartNumber);
+
+            return Json(partNumber);
+                
+        }
+
+        public IActionResult GetSupplierName(string term) 
+        {
+            var supplierName = _context.SupplyMaster
+                .Where(s => s.SupplierName.Contains(term))
+                .Select(s => s.SupplierName).ToList();
+
+            return Json(supplierName);
+        }
+
+
         #endregion
 
 
         #region Stock In and Out
 
         // GET: InventoryMasters/Create
-        public IActionResult StockIn()
+        public IActionResult StockUpdate()
         {
             return View();
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateStock([Bind("ID,PartNumber,PartName,Brand,StockNew,StockUsed,Modified,Location,SubLocation")] LogMaster logmaster)
+        {
+
+            var _partID = _context.InventoryMaster
+                .Where(p => p.PartNumber == logmaster.PartNumber)
+                .Select(p => p.ID).FirstOrDefault();
+
+            var _supplierID = _context.SupplyMaster
+                .Where(s => s.SupplierName == logmaster.Supplier || s.SupplierName.Contains(logmaster.Supplier))
+                .Select(s => s.ID).FirstOrDefault();
+
+            var _LocationID = _context.LocationMaster
+               .Where(l => l.Location == logmaster.Location || l.Location.Contains(logmaster.Location))
+               .Select(l => l.LocationID).FirstOrDefault();
+
+            var _SubLocationID = _context.SubLocationMaster
+               .Where(l => l.SubLocation == logmaster.SubLocation || l.SubLocation.Contains(logmaster.SubLocation))
+               .Select(l => l.SubLocationID).FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                logmaster.ID = Guid.NewGuid();
+                logmaster.LogDate = DateTime.Now;
+                logmaster.PartID = _partID;
+                logmaster.SupplierID = _supplierID;
+                logmaster.SubLocationID = _SubLocationID;
+                _context.Add(logmaster);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(logmaster);
+        }
+
+
+        #endregion
+
+
+        #region Parts Master
+
+
+        public async Task<IActionResult> PartsIndex()
+        {
+            var parts = await _context.PartsMaster.ToListAsync();
+
+            return _context.InventoryMaster != null ?
+                        View("~/Views/InventoryMasters/Parts/Index.cshtml", parts) :
+                        Problem("Entity set 'AuthDbContext.PartsMaster' is null.");
+        }
+
+        // Show Create Page
+        public IActionResult PartsCreate()
+        {
+            return View("~/Views/InventoryMasters/Parts/Create.cshtml");
+        }
+
+        // Creates a new Part
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PartsCreate([Bind("PartID, Brand, PartNumber, PartName, Description, MinNew, MinUsed, Bin")] PartsMaster partmaster)
+        {
+            if (ModelState.IsValid)
+            {
+                partmaster.PartID = Guid.NewGuid();
+                partmaster.Modified = DateTime.Now;
+                _context.Add(partmaster);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View("~/Views/InventoryMasters/Parts/Index.cshtml", partmaster);
+        }
+
+
+
+
+        public IActionResult PartsEdit()
+        {
+            return View("~/Views/InventoryMasters/Parts/Edit.cshtml");
+        }
+
+        public IActionResult PartsDelete()
+        {
+            return View("~/Views/InventoryMasters/Parts/Delete.cshtml");
+        }
+
+
+
 
         #endregion
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace InvMng_InfTech.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -114,6 +114,50 @@ namespace InvMng_InfTech.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LocationMaster", x => x.LocationID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LogMaster",
+                columns: table => new
+                {
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PartNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PartName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StockInOut = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Supplier = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Remark = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LogDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PartID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    SupplierID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ExistingStockNew = table.Column<int>(type: "int", nullable: true),
+                    ExistingStockUsed = table.Column<int>(type: "int", nullable: true),
+                    StockNew = table.Column<int>(type: "int", nullable: true),
+                    StockUsed = table.Column<int>(type: "int", nullable: true),
+                    LocationID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    SubLocationID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IssuedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LogMaster", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SubLocationMaster",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubLocationID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SubLocation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ModifiedDate = table.Column<DateTime>(name: "Modified Date", type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubLocationMaster", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -366,7 +410,13 @@ namespace InvMng_InfTech.Migrations
                 name: "LocationMaster");
 
             migrationBuilder.DropTable(
+                name: "LogMaster");
+
+            migrationBuilder.DropTable(
                 name: "OrderItems");
+
+            migrationBuilder.DropTable(
+                name: "SubLocationMaster");
 
             migrationBuilder.DropTable(
                 name: "SupplyMaster");

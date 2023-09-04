@@ -1,0 +1,144 @@
+﻿@model IEnumerable<InvMng_InfTech.Models.Masters.PartsMaster>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="mt-3 mb-3">Parts</h2>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="container d-flex justify-content-end">
+
+                <a type="button" class="btn btn-outline-primary btn-block" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("PartsCreate", "InventoryMasters")">
+                    <i class="fa-solid fa-plus"></i> Add Part
+                </a>
+
+            </div>
+
+            <div class="table-container">
+                <table id="myTable" class="table table-bordered max-width-table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PartID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PartName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PartNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MinNew)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MinUsed)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Bin)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Modified)
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => item.PartID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.PartName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.PartNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.MinNew)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.MinUsed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Bin)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Modified)
+                                </td>
+                                <td>
+
+                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("PartsEdit", "InventoryMasters", new { id = item.PartID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+
+                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("PartsDetail", "InventoryMasters", new {id = item.PartID})">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+
+                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#itemModal" data-bs-url="@Url.Action("PartsDelete", "InventoryMasters", new {id = item.PartID})">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- BootStrap Modal PopUp -->
+<div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- The item page content will be loaded here -->
+                <div id="itemModalContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#itemModal').on('show.bs.modal', function (e) {
+                // Clear the existing content in the modal
+                $('#itemModalContainer').empty();
+
+                var url = $(e.relatedTarget).data('bs-url');
+                $('#itemModalContainer').load(url);
+            });
+
+            $('#itemModal').on('hidden.bs.modal', function () {
+                // Clear the container when the modal is dismissed
+                $('#itemModalContainer').empty();
+            });
+        });
+    </script>
+
+}
+
+
+

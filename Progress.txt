@@ -23,6 +23,13 @@ Stock
 -Delete -
 -Details -
 
+Parts
+#Index - addTable and Update Ui
+#Create -
+-Edit -
+-Delete -
+-Details -
+
 
 -Fixing the modal popup for details,delete,info
 --Works gotta use this [Layout = "~/Views/Items/_CreateEditLayout.cshtml";]

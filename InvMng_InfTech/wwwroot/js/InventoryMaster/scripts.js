@@ -34,25 +34,46 @@ $(document).ready(function () {
     const subLocationUrl = '/InventoryMasters/GetSubLocations';
     const brandUrl = '/InventoryMasters/GetBrandName';
     const partsUrl = '/InventoryMasters/GetPartName';
+    const GetPartNumberUrl = '/InventoryMasters/GetPartNumber'
+    const SupplierUrl = '/InventoryMasters/GetSupplierName'
 
     // Configure autocomplete for Location field
-    $('#locationInput').autocomplete({
+    $('#location').autocomplete({
         source: locationUrl
     });
 
     // Configure autocomplete for SubLocation field
-    $('#subLocationInput').autocomplete({
+    $('#subLocation').autocomplete({
         source: subLocationUrl
     });
 
 
-    $('#partNameInput').autocomplete({
-        source: partsUrl
+    $('#partName').autocomplete({
+        source: partsUrl,
+        select: function (event, ui) {
+            // When a partName is selected, set the value of Get_PartNumber
+            const selectedPartName = ui.item.value;
+            $.ajax({
+
+                url: GetPartNumberUrl,
+                data: { term: selectedPartName },
+                dataType: 'json',
+                success: function (data) {
+                    $('#Get_PartNumber').val(data);
+                    $('#Get_PartNumber').val(data);
+                }
+            });
+        }
     })
 
-    $('#brandInput').autocomplete({
+    $('#brand').autocomplete({
         source: brandUrl
     });
+
+
+    $('#supplier').autocomplete({
+        source: SupplierUrl
+    })
 
 
 });
@@ -67,7 +88,7 @@ function fetchPartNames(brand) {
         type: 'GET',
         success: function (data) {
             // Configure autocomplete for Part Name field with filtered data
-            $('#partNameInput').autocomplete({
+            $('#partName').autocomplete({
                 source: data
             });
         },
@@ -81,7 +102,7 @@ function fetchPartNames(brand) {
 // Auto Generate Part Number
 $(document).ready(function () {
     // Get the input element
-    const partNumberInput = $('#partNumberInput');
+    const partNumberInput = $('#partNumber');
 
     // Get the generate button
     const generateButton = $('#generatePartNumber');
