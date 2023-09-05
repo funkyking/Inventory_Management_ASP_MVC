@@ -1,8 +1,6 @@
 ﻿
 /* Create Page Functions */
 
-
-
 // Function to preview uploaded image
 $(document).ready(function previewImage(input) {
     var preview = document.getElementById('partImagePreview');
@@ -49,22 +47,32 @@ $(document).ready(function () {
 
 
     $('#partName').autocomplete({
-        source: partsUrl,
+        source: function (request, response) {
+            const selectedBrandName = $('#brand').val(); // Get the selected brand name
+            $.ajax({
+                url: partsUrl,
+                data: {
+                    term: request.term,
+                    brand: selectedBrandName // Pass the selected brand name as a parameter
+                },
+                dataType: 'json',
+                success: function (data) {
+                    response(data); // Provide the response data for autocomplete
+                }
+            });
+        },
         select: function (event, ui) {
-            // When a partName is selected, set the value of Get_PartNumber
             const selectedPartName = ui.item.value;
             $.ajax({
-
                 url: GetPartNumberUrl,
                 data: { term: selectedPartName },
                 dataType: 'json',
                 success: function (data) {
-                    $('#Get_PartNumber').val(data);
-                    $('#Get_PartNumber').val(data);
+                    $('#partNumber').val(data);
                 }
             });
         }
-    })
+    });
 
     $('#brand').autocomplete({
         source: brandUrl
@@ -77,26 +85,6 @@ $(document).ready(function () {
 
 
 });
-
-
-// Function to fetch part names based on brand input
-function fetchPartNames(brand) {
-    const partNameUrl = '/InventoryMasters/GetPartName?brand=' + brand;
-
-    $.ajax({
-        url: partNameUrl,
-        type: 'GET',
-        success: function (data) {
-            // Configure autocomplete for Part Name field with filtered data
-            $('#partName').autocomplete({
-                source: data
-            });
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-}
 
 
 // Auto Generate Part Number

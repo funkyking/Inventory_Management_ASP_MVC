@@ -1,0 +1,58 @@
+﻿@model InvMng_InfTech.Models.Masters.PartsMaster
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_ModalViewPartial.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PartsEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PartID" />
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" id="brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartNumber" class="control-label"></label>
+                <input asp-for="PartNumber" class="form-control" />
+                <span asp-validation-for="PartNumber" id="partNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartName" class="control-label"></label>
+                <input asp-for="PartName" class="form-control" />
+                <span asp-validation-for="PartName" id="partName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinNew" class="control-label"></label>
+                <input asp-for="MinNew" class="form-control" />
+                <span asp-validation-for="MinNew" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinUsed" class="control-label"></label>
+                <input asp-for="MinUsed" class="form-control" />
+                <span asp-validation-for="MinUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bin" class="control-label"></label>
+                <input asp-for="Bin" class="form-control" />
+                <span asp-validation-for="Bin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/js/InventoryMaster/scripts.js" asp-append-version="true"></script>
+}

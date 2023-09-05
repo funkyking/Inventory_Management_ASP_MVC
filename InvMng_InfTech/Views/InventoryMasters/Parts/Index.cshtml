@@ -27,6 +27,9 @@
                                 @Html.DisplayNameFor(model => model.PartID)
                             </th>
                             <th>
+                                @Html.DisplayNameFor(model => model.Brand)
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.PartName)
                             </th>
                             <th>
@@ -58,6 +61,9 @@
                             <tr>
                                 <td>
                                     @Html.DisplayFor(model => item.PartID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Brand)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(model => item.PartName)
@@ -111,6 +117,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
+                <!-- Validation summary container -->
+                <div id="validationSummary" class="text-danger"></div>
+
                 <!-- The item page content will be loaded here -->
                 <div id="itemModalContainer"></div>
             </div>
@@ -137,6 +146,8 @@
             });
         });
     </script>
+
+    
 
 }
 

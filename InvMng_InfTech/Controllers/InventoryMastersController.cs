@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using InvMng_InfTech.Data;
 using InvMng_InfTech.Models.Masters;
 using System.Diagnostics;
+using InvMng_InfTech.Migrations;
+using PartsMaster = InvMng_InfTech.Models.Masters.PartsMaster;
+using System.Drawing.Drawing2D;
 
 namespace InvMng_InfTech.Controllers
 {
@@ -211,22 +214,31 @@ namespace InvMng_InfTech.Controllers
 
         }
 
-        public IActionResult GetPartName(string term)
-        {
+        public IActionResult GetPartName(string term, string brand)
+       {
+            //var partNames = _context.PartsMaster
+            //    .Where(pn => pn.PartName.Contains(term))
+            //    .Select(pn => pn.PartName)
+            //    .Distinct().ToList();
+
+            //return Json(partNames);
+
+            // Query your database to get part names based on the provided term and brand
             var partNames = _context.PartsMaster
-                .Where(pn => pn.PartName.Contains(term))
-                .Select(pn => pn.PartName)
-                .Distinct().ToList();
+                .Where(p => p.Brand == brand && p.PartName.Contains(term))
+                .Select(p => p.PartName)
+                .Distinct()
+                .ToList();
 
             return Json(partNames);
+
         }
 
         public IActionResult GetPartNumber(string term)
         {
             var partNumber = _context.PartsMaster
                 .Where(pn => pn.PartName == term)
-                .Select(pn => pn.PartNumber);
-
+                .Select(pn => pn.PartNumber).First();
             return Json(partNumber);
                 
         }
@@ -244,7 +256,7 @@ namespace InvMng_InfTech.Controllers
         #endregion
 
 
-        #region Stock In and Out
+        #region Stock In and Out (logMaster)
 
         // GET: InventoryMasters/Create
         public IActionResult StockUpdate()
@@ -307,6 +319,7 @@ namespace InvMng_InfTech.Controllers
         // Show Create Page
         public IActionResult PartsCreate()
         {
+            TempData["EditMode"] = true;
             return View("~/Views/InventoryMasters/Parts/Create.cshtml");
         }
 
@@ -317,22 +330,118 @@ namespace InvMng_InfTech.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_context.PartsMaster.Any(b => b.PartName == partmaster.PartName && b.PartNumber == partmaster.PartNumber))
+                {
+                    // Brand, PartName, or PartNumber already exist
+                    return Json(new { success = false, message = "The combination of PartName and PartNumber already exists." });
+                }
+
+                // If no duplicates, proceed to save the part
                 partmaster.PartID = Guid.NewGuid();
                 partmaster.Modified = DateTime.Now;
                 _context.Add(partmaster);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                // Return a success response
+                return Json(new { success = true });
             }
-            return View("~/Views/InventoryMasters/Parts/Index.cshtml", partmaster);
+
+            // If ModelState is invalid, return a response with validation errors
+            var validationErrors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return Json(new { success = false, errors = validationErrors });
         }
 
 
-
-
-        public IActionResult PartsEdit()
+        public async Task<IActionResult> PartsEdit(Guid? id)
         {
-            return View("~/Views/InventoryMasters/Parts/Edit.cshtml");
+
+            if (id == null || _context.PartsMaster == null)
+            {
+                return NotFound();
+            }
+
+            var partsmaster = await _context.PartsMaster.FindAsync(id);
+            if (partsmaster == null)
+            {
+                return NotFound();
+            }
+
+            TempData["EditMode"] = true;
+            return View("~/Views/InventoryMasters/Parts/Create.cshtml", partsmaster);
+            //return View("~/Views/InventoryMasters/Parts/Edit.cshtml", partsmaster);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PartsEdit(Guid id, [Bind("PartID, Brand, PartNumber, PartName, Description, MinNew, MinUsed, Bin")] PartsMaster partsMaster)
+        {
+            if (id != partsMaster.PartID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    try
+                    {
+
+                        // Check if PartNumber is changed
+                        var isPartNumberChanged = _context.PartsMaster.Any(p => p.PartID == id && p.PartNumber != partsMaster.PartNumber);
+
+                        if (isPartNumberChanged && _context.PartsMaster.Any(b => b.PartNumber == partsMaster.PartNumber))
+                        {
+                            // PartNumber already exists
+                            return Json(new { success = false, message = "PartNumber already exists." });
+                        }
+
+                        // Check if Brand and PartName combination already exists
+                        if (_context.PartsMaster.Any(pn => pn.PartID != id && pn.Brand == partsMaster.Brand && pn.PartName == partsMaster.PartName))
+                        {
+                            // Brand and PartName combination already exists in a different record
+                            return Json(new { success = false, message = "Brand and PartName combination already exists in a different record." });
+                        }
+
+
+                        partsMaster.Modified = DateTime.Now;
+                        _context.Update(partsMaster);
+                        await _context.SaveChangesAsync();
+
+                        return Json(new { success = true });
+                    }
+                    catch (Exception ex)
+                    {
+
+                        return Json(new { success = false, errors = "An error occurred while saving the part." });
+                    }
+                    
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+
+                    if (!InventoryMasterExists(partsMaster.PartID))
+                    { return NotFound();}
+                    else
+                    { throw;}
+                }
+                //return RedirectToAction(nameof(Index));
+            }
+            //return View();
+            // If ModelState is invalid, return a response with validation errors
+            var validationErrors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return Json(new { success = false, errors = validationErrors });
+        }
+
+
 
         public IActionResult PartsDelete()
         {

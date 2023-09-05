@@ -5,84 +5,120 @@
     Layout = "~/Views/Shared/_ModalViewPartial.cshtml";
 }
 
-<form asp-action="PartsCreate">
+
+@if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+{
+    <h3 class="mt-2 mb-2">Edit Part : @Model.PartName</h3>
+     
+}
+else
+{
+    <h2 class="mt-2 mb-2">New Part</h2>
+}
+
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-center allign-center">
+        <form asp-action="@(TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"] ? "PartsEdit" : "PartsCreate")" id="partsCreateForm">
+
+            @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+            {
+                <input type="hidden" asp-for="PartID" />
+            }
+
+            <div class="mb-3">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+
+            <!-- Brand -->
+            <div class="mb-3">
+                <label for="Brand" class="form-label">Brand</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
+                    <input asp-for="Brand" id="brand" class="form-control">
+                </div>
+            </div>
+
+            <!-- Part Name -->
+            <div class="mb-3">
+                <label asp-for="PartName" class="control-label">PartName</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                    <input asp-for="PartName" id="partName" class="form-control">
+                </div>
+            </div>
+
+            <!-- Part Number -->
+            <div class="mb-3">
+                <label asp-for="PartNumber" class="control-label">Part Number</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-fingerprint"></i></span>
+                    <input asp-for="PartNumber" id="partNumber" class="form-control"/>
+                    <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
+                </div>
+                <span asp-validation-for="PartNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Min New -->
+            <div class="mb-3">
+                <label asp-for="MinNew" class="control-label">Min New</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                    <input asp-for="MinNew" id="minnew" class="form-control">
+                </div>
+                <span asp-validation-for="MinNew" class="text-danger"></span>
+            </div>
+
+            <!-- Min Used -->
+            <div class="mb-3">
+                <label asp-for="MinUsed" class="control-label">Min Used</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-box-open"></i></span>
+                    <input asp-for="MinUsed" id="minused" class="form-control">
+                </div>
+                <span asp-validation-for="MinUsed" class="text-danger"></span>
+            </div>
+
+            <!-- Bin -->
+            <div class="mb-3">
+                <label asp-for="Bin" class="control-label">Bin</label>
+                <div class="input-group">
+                    <span class="inputinput-group-text"><i class="fa-solid fa-file-contract"></i></span>
+                    <input asp-for="Bin" id="Bin" class="form-control">
+                </div>
+                <span asp-validation-for="Bin" class="text-danger"></span>
+            </div>
+
+
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label asp-for="Description" class="control-label">Description</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                    <input asp-for="Description" id="description" class="form-control">
+                </div>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group d-grid gap-2 col-6 mx-auto">
+                @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+                {
+                    <input type="submit" id="submitPartButton" value="Save" class="btn btn-secondary" />
+                }
+                else
+                {
+                    <button type="submit" id="submitPartButton" class="btn btn-primary btn-block">Add Part</button>
+                }
+            </div>
+
+
+        </form>
+    </div>
     
-    <!-- Brand -->
-    <div class="mb-3">
-        <label for="partName" class="form-label">Brand</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-cube"></i></span>
-            <input type="text" class="form-control" id="Brand" name="Brand">
-        </div>
-    </div>
+</div>
 
-    <!-- Part Name -->
-    <div class="mb-3">
-        <label asp-for="PartName" class="control-label">PartName</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-cube"></i></span>
-            <input asp-for="PartName" id="partName" class="form-control" >
-        </div>
-    </div>
-
-    <!-- Part Number -->
-    <div class="mb-3">
-        <label asp-for="PartNumber" class="control-label">Part Number</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-cube"></i></span>
-            <input asp-for="PartNumber" id="partNumber" class="form-control" readonly />
-            <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
-        </div>
-        <span asp-validation-for="PartNumber" class="text-danger"></span>
-    </div>
-
-    <!-- Min New -->
-    <div class="mb-3">
-        <label asp-for="MinNew" class="control-label">Min New</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-comment"></i></span>
-            <input asp-for="MinNew" id="minnew" class="form-control">
-        </div>
-        <span asp-validation-for="MinNew" class="text-danger"></span>
-    </div>
-
-    <!-- Min Used -->
-    <div class="mb-3">
-        <label asp-for="MinUsed" class="control-label">Min Used</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-comment"></i></span>
-            <input asp-for="MinUsed" id="minused" class="form-control">
-        </div>
-        <span asp-validation-for="MinUsed" class="text-danger"></span>
-    </div>
-
-    <!-- Bin -->
-    <div class="mb-3">
-        <label asp-for="Bin" class="control-label">Bin</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-comment"></i></span>
-            <input asp-for="Bin" id="Bin" class="form-control">
-        </div>
-        <span asp-validation-for="Bin" class="text-danger"></span>
-    </div>
-    
-
-
-    <!-- Description -->
-    <div class="mb-3">
-        <label asp-for="Description" class="control-label">Description</label>
-        <label for="remark" class="form-label">Remark</label>
-        <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-comment"></i></span>
-            <input asp-for="Description" id="description" class="form-control">
-        </div>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div class="d-grid gap-2 col-6 mx-auto shadow">
-        <button type="submit" class="btn btn-primary btn-block">Add Part</button>
-    </div>
-</form>
 
 
 
@@ -93,8 +129,57 @@
     <script src="~/js/InventoryMaster/scripts.js" asp-append-version="true"></script>
 
     <script>
-        $(document).ready(function () {
-            document.getElementById("generatePartNumber").click();
+        //$(document).ready(function () {
+        //    document.getElementById("generatePartNumber").click();
+        //});   
+    </script>
+
+    <script>
+        $(function () {
+            $('#submitPartButton').click(function (e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                var formData = $('#partsCreateForm').serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: $('#partsCreateForm').attr('action'),
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            // Successfully saved, close the modal if needed
+                            $('#itemModal').modal('hide');
+                            // Optionally, you can refresh the parent page here
+                            window.location.reload();
+                        } else {
+                            // Handle errors or duplicate message here
+                            if (response.errors) {
+                                // Display validation errors
+                                $('#validationSummary').html(response.errors.join('<br>'));
+                            } else if (response.message) {
+                                // Display the duplicate message
+                                $('#validationSummary').html(response.message);
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle AJAX errors (if any)
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            // Get initial Value
+            var initialPartNumberValue = $('#partNumber').val();
+
+            // Apply the initial Value to this input
+            $('OldpartNumber').val() = initialPartNumberValue;
+
+        });
+    </script>
+
 }
