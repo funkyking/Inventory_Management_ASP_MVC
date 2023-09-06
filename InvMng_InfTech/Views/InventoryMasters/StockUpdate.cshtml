@@ -32,12 +32,23 @@
                     <input type="text" class="form-control" id="partName" name="partName">
                 </div>
             </div>
+
+            <div class="mb-3">
+                <label asp-for="PartName" class="control-label">PartName</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                    <input asp-for="PartName" id="partName" class="form-control">
+                </div>
+            </div>
+
+
+
             <!-- Part Number -->
             <div class="mb-3">
                 <label for="partNumber" class="form-label">Part Number</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-barcode"></i></span>
-                    <input type="text" class="form-control" id="Get_PartNumber" name="partNumber" style="background-color: #f2f4f7" readonly>
+                    <input type="text" class="form-control" id="partNumber" name="partNumber" style="background-color: #f2f4f7" readonly>
                 </div>
             </div>
 

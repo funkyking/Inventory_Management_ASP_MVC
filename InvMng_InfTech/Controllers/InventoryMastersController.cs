@@ -216,20 +216,25 @@ namespace InvMng_InfTech.Controllers
 
         public IActionResult GetPartName(string term, string brand)
        {
-            //var partNames = _context.PartsMaster
-            //    .Where(pn => pn.PartName.Contains(term))
-            //    .Select(pn => pn.PartName)
-            //    .Distinct().ToList();
 
-            //return Json(partNames);
+            var partNames = new List<string?>();
 
-            // Query your database to get part names based on the provided term and brand
-            var partNames = _context.PartsMaster
-                .Where(p => p.Brand == brand && p.PartName.Contains(term))
-                .Select(p => p.PartName)
-                .Distinct()
-                .ToList();
-
+            if (brand == "" || brand == null)
+            {
+                partNames = _context.PartsMaster
+                    .Where(pn => pn.PartName.Contains(term))
+                    .Select(pn => pn.PartName)
+                    .Distinct().ToList();
+            }
+            else
+            {
+                // Query your database to get part names based on the provided term and brand
+                partNames = _context.PartsMaster
+                    .Where(p => p.Brand == brand && p.PartName.Contains(term))
+                    .Select(p => p.PartName)
+                    .Distinct()
+                    .ToList();
+            }
             return Json(partNames);
 
         }

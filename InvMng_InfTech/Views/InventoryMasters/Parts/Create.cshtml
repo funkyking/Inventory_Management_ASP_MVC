@@ -8,12 +8,12 @@
 
 @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
 {
-    <h3 class="mt-2 mb-2">Edit Part : @Model.PartName</h3>
+    <h2 class="mt-2 mb-2">New Part</h2>
      
 }
 else
 {
-    <h2 class="mt-2 mb-2">New Part</h2>
+    <h3 class="mt-2 mb-2">Edit Part : @Model.PartName</h3>
 }
 
 
@@ -63,7 +63,7 @@ else
             <div class="mb-3">
                 <label asp-for="MinNew" class="control-label">Min New</label>
                 <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                    <span class="input-group-text"><i class="fa-solid fa-cart-plus"></i></span>
                     <input asp-for="MinNew" id="minnew" class="form-control">
                 </div>
                 <span asp-validation-for="MinNew" class="text-danger"></span>
@@ -83,12 +83,11 @@ else
             <div class="mb-3">
                 <label asp-for="Bin" class="control-label">Bin</label>
                 <div class="input-group">
-                    <span class="inputinput-group-text"><i class="fa-solid fa-file-contract"></i></span>
+                    <span class="input-group-text"><i class="fa-solid fa-file-contract"></i></span>
                     <input asp-for="Bin" id="Bin" class="form-control">
                 </div>
                 <span asp-validation-for="Bin" class="text-danger"></span>
             </div>
-
 
 
             <!-- Description -->
@@ -96,7 +95,8 @@ else
                 <label asp-for="Description" class="control-label">Description</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                    <input asp-for="Description" id="description" class="form-control">
+                    @*<input asp-for="Description" id="description" class="form-control">*@
+                    <textarea asp-for="Description" id="description" class="form-control"></textarea>
                 </div>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
