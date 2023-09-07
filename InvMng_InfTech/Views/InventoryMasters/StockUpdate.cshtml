@@ -24,66 +24,97 @@
                 <input type="hidden" id="hiddenStockInOut" name="stockInOut" value="Stock In">
             </div>
 
-            <!-- Part Name -->
-            <div class="mb-3">
-                <label for="partName" class="form-label">Part Name</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                    <input type="text" class="form-control" id="partName" name="partName">
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="PartName" class="control-label">PartName</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                    <input asp-for="PartName" id="partName" class="form-control">
-                </div>
-            </div>
 
 
+            <!-- Important -->
+            <div class="container" id="important">
+                <!-- Part Name -->
+                <div class="mb-3">
+                    <label asp-for="PartName" class="control-label">PartName</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                        <input asp-for="PartName" id="partName" class="form-control">
+                    </div>
+                </div>
 
-            <!-- Part Number -->
-            <div class="mb-3">
-                <label for="partNumber" class="form-label">Part Number</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-barcode"></i></span>
-                    <input type="text" class="form-control" id="partNumber" name="partNumber" style="background-color: #f2f4f7" readonly>
+                <!-- Part Number -->
+                <div class="mb-3">
+                    <label asp-for="PartNumber" class="control-label">PartNumber</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                        <input asp-for="PartNumber" id="partNumber" class="form-control" style="background-color: #f2f4f7">
+                    </div>
                 </div>
-            </div>
 
-            <!-- Location -->
-            <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                    <input type="text" class="form-control" id="location" name="location">
+                <!-- Stock New -->
+                <div class="mb-3" id="_stockNew">
+                    <label asp-for="StockNew" class="control-label">Stock New</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-plus"></i></span>
+                        <input asp-for="StockNew" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Stock Used -->
+                <div class="mb-3" id="_stockUsed">
+                    <label asp-for="StockUsed" class="control-label">Stock Used</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-minus"></i></span>
+                        <input asp-for="StockUsed" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Remark -->
+                <div class="mb-3">
+                    <label for="remark" class="form-label">Remark</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                        <textarea class="form-control" id="remark" name="remark"></textarea>
+                    </div>
                 </div>
             </div>
-            <!-- SubLocation -->
-            <div class="mb-3">
-                <label for="subLocation" class="form-label">SubLocation</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
-                    <input type="text" class="form-control" id="subLocation" name="subLocation">
+            
+
+
+            <!-- Not Important -->
+            <div class="container" id="notImportant">
+                <!-- Brand -->
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Brand</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
+                        <input asp-for="Brand" id="brand" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <input type="text" class="form-control" id="location" name="location">
+                    </div>
+                </div>
+
+                <!-- SubLocation -->
+                <div class="mb-3">
+                    <label for="subLocation" class="form-label">SubLocation</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+                        <input type="text" class="form-control" id="subLocation" name="subLocation">
+                    </div>
+                </div>
+
+                <!-- Supplier -->
+                <div class="mb-3">
+                    <label for="supplier" class="form-label">Supplier</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-truck"></i></span>
+                        <input type="text" class="form-control" id="supplier" name="supplier">
+                    </div>
                 </div>
             </div>
-            <!-- Supplier -->
-            <div class="mb-3">
-                <label for="supplier" class="form-label">Supplier</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-truck"></i></span>
-                    <input type="text" class="form-control" id="supplier" name="supplier">
-                </div>
-            </div>
-            <!-- Remark -->
-            <div class="mb-3">
-                <label for="remark" class="form-label">Remark</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                    <textarea class="form-control" id="remark" name="remark"></textarea>
-                </div>
-            </div>
+           
 
             <div class="d-grid gap-2 col-6 mx-auto shadow">
                 <button type="submit" class="btn btn-primary btn-block">Update</button>
@@ -96,13 +127,16 @@
 
     <script src="~/js/InventoryMaster/scripts.js" asp-append-version="true"></script>
 
-    <script>
 
+    <script>
         $(document).ready(function () {
             const iconClassMap = {
                 'Stock In': 'fa-truck-ramp-box',
                 'Stock Out': 'fa-truck-fast'
             };
+
+            // Hide StockUsed During Load
+            $('#_stockUsed').hide();
 
             $('#stockToggle').change(function () {
                 const isChecked = this.checked;
@@ -113,16 +147,25 @@
                 if (isChecked) {
                     toggleText.text('Stock Out');
                     stockIcon.removeClass('fa-truck-ramp-box').addClass('fa-truck-fast');
+                    $('#StockNew').val("");
+                    $('#_stockNew').hide();
+                    $('#_stockUsed').show();
+                    
                 } else {
                     stockIcon.removeClass('fa-truck-fast').addClass('fa-truck-ramp-box');
                     toggleText.text('Stock In');
+                    $('#StockUsed').val("");
+                    $('#_stockNew').show();
+                    $('#_stockUsed').hide();
+                    
                 }
 
                 hiddenInput.val(toggleText.text());
             });
         });
+    </script>
 
-
-
+    <script>
+        
     </script>
 }

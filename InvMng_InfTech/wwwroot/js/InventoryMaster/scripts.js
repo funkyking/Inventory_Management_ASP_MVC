@@ -45,7 +45,6 @@ $(document).ready(function () {
         source: subLocationUrl
     });
 
-
     $('#partName').autocomplete({
         source: function (request, response) {
             const selectedBrandName = $('#brand').val(); // Get the selected brand name
@@ -69,6 +68,26 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) {
                     $('#partNumber').val(data);
+
+                    const partNumber = data;
+                    $.ajax({
+                        url: '/InventoryMasters/_ExistingStockCheck',
+                        type: 'GET',
+                        data: {
+                            PartNumber: partNumber,
+                            timestamp: new Date().getTime() // Add a timestamp to prevent caching
+                        },
+                        success: function (data) {
+                            if (!data) {
+                                $('#notImportant').show(); // Fade in the container
+                            } else {
+                                $('#notImportant').hide(); // Fade out the container
+                            }
+                        },
+                        error: function (error) {
+                            console.error(error);
+                        }
+                    });
                 }
             });
         }

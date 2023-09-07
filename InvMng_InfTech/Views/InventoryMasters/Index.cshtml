@@ -13,6 +13,10 @@
         display: inline-block;
         margin-left: 10px; /* Adjust the margin as needed */
     }
+
+    .modal-transition {
+        transition: transform 0.3s ease-in-out;
+    }
 </style>
 
 
@@ -145,7 +149,7 @@
 <!-- BootStrap Modal PopUp -->
 <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal-transition">
             <div class="modal-body">
                 <!-- The item page content will be loaded here -->
                 <div id="itemModalContainer"></div>

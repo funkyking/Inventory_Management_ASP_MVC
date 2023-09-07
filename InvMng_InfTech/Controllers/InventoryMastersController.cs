@@ -269,37 +269,119 @@ namespace InvMng_InfTech.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> _ExistingStockCheck(string PartNumber)
+        {
+
+            var status = false;
+            if (await _context.InventoryMaster
+                .AnyAsync(p => p.PartNumber == PartNumber))
+            {
+                status = true;
+            }
+            return Json(status);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateStock([Bind("ID,PartNumber,PartName,Brand,StockNew,StockUsed,Modified,Location,SubLocation")] LogMaster logmaster)
+        public async Task<IActionResult> UpdateStock([Bind("ID,PartNumber,PartName,Brand,stockInOut,StockNew,StockUsed,Modified,Location,SubLocation,Supplier")] LogMaster logmaster)
         {
 
-            var _partID = _context.InventoryMaster
-                .Where(p => p.PartNumber == logmaster.PartNumber)
-                .Select(p => p.ID).FirstOrDefault();
-
-            var _supplierID = _context.SupplyMaster
-                .Where(s => s.SupplierName == logmaster.Supplier || s.SupplierName.Contains(logmaster.Supplier))
-                .Select(s => s.ID).FirstOrDefault();
-
-            var _LocationID = _context.LocationMaster
-               .Where(l => l.Location == logmaster.Location || l.Location.Contains(logmaster.Location))
-               .Select(l => l.LocationID).FirstOrDefault();
-
-            var _SubLocationID = _context.SubLocationMaster
-               .Where(l => l.SubLocation == logmaster.SubLocation || l.SubLocation.Contains(logmaster.SubLocation))
-               .Select(l => l.SubLocationID).FirstOrDefault();
+            var _part = await _context.PartsMaster
+                .FirstOrDefaultAsync(id => id.PartNumber == logmaster.PartNumber);
 
             if (ModelState.IsValid)
             {
+
                 logmaster.ID = Guid.NewGuid();
                 logmaster.LogDate = DateTime.Now;
-                logmaster.PartID = _partID;
-                logmaster.SupplierID = _supplierID;
-                logmaster.SubLocationID = _SubLocationID;
+                logmaster.PartID = _part?.PartID;
+
+                if (_context.InventoryMaster.Any(pid => pid.ID == _part.PartID))
+                {
+                    var partrow = await _context.InventoryMaster
+                            .FirstOrDefaultAsync(m => m.ID == _part.PartID);
+
+                    //Need to add logic to pass the supplier assosciated
+                    //logmaster.supplier = 
+
+
+                    var _Location = await _context.LocationMaster
+                        .FirstOrDefaultAsync(l => l.Location == partrow.Location || l.Location.Contains(partrow.Location));
+
+                    var _SubLocation = await _context.SubLocationMaster
+                        .FirstOrDefaultAsync(l => l.SubLocation == partrow.SubLocation || l.SubLocation.Contains(partrow.SubLocation));
+
+
+                    if (logmaster.StockNew != 0 & logmaster.StockNew != null)
+                    {
+                        logmaster.StockInOut = "Stock In";
+                    }
+
+                    if (logmaster.StockUsed != 0 && logmaster.StockUsed != null)
+                    {
+                        logmaster.StockInOut = "Stock Out";
+                    }
+
+
+                    // Stock In
+                    if (logmaster.StockInOut.Contains("In"))
+                    {
+                        if (partrow.StockNew == null) { partrow.StockNew = 0; }
+                        partrow.StockNew += logmaster.StockNew;
+                    }
+
+                    // Stock out
+                    if (logmaster.StockInOut.Contains("Out"))
+                    {
+                        if (partrow.StockUsed == null) { partrow.StockUsed = 0; }
+                        partrow.StockUsed += logmaster.StockUsed;
+                        if (partrow.StockNew == null) { partrow.StockNew = 0; }
+                        partrow.StockNew -= logmaster.StockUsed;
+                    }
+
+                    partrow.Modified = DateTime.Now;
+                    _context.Update(partrow);
+                    await _context.SaveChangesAsync();
+                }
+
+                else
+                {
+                    var _supplier = await _context.SupplyMaster
+                        .FirstOrDefaultAsync(s => s.SupplierName == logmaster.Supplier || s.SupplierName.Contains(logmaster.Supplier));
+
+                    var _Location = await _context.LocationMaster
+                        .FirstOrDefaultAsync(l => l.Location == logmaster.Location || l.Location.Contains(logmaster.Location));
+
+                    var _SubLocation = await _context.SubLocationMaster
+                        .FirstOrDefaultAsync(l => l.SubLocation == logmaster.SubLocation || l.SubLocation.Contains(logmaster.SubLocation));
+
+                    
+                    logmaster.SupplierID = _supplier?.ID;
+                    logmaster.LocationID = _Location?.LocationID;
+                    logmaster.SubLocationID = _SubLocation?.SubLocationID;
+                   
+                    //create new row in inventory master and add the logmaster values.
+                    var newInvRow = new InventoryMaster
+                    {
+                        ID = _part.PartID,
+                        PartNumber = _part.PartNumber,
+                        PartName = _part.PartName,
+                        Brand = _part.Brand,
+                        Location = logmaster.Location,
+                        SubLocation = logmaster.SubLocation,
+                        StockNew = logmaster.StockNew,
+                        StockUsed = logmaster.StockUsed,
+                        Modified = DateTime.Now
+                    };
+                    _context.Add(newInvRow);
+                    await _context.SaveChangesAsync();
+
+                }
+
                 _context.Add(logmaster);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(logmaster);
