@@ -9,209 +9,209 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InvMng_InfTech
 build_property.RootNamespace = InvMng_InfTech
-build_property.ProjectDir = C:\Users\Paul\Desktop\Inventory Management (Infinite Solutions)\Inventory_Management_ASP_MVC\InvMng_InfTech\
+build_property.ProjectDir = C:\Users\Admin\Desktop\Paul Projects\Inventory_Management_ASP_MVC\InvMng_InfTech\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Paul\Desktop\Inventory Management (Infinite Solutions)\Inventory_Management_ASP_MVC\InvMng_InfTech
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Paul Projects\Inventory_Management_ASP_MVC\InvMng_InfTech
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_AuthLayout.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_AuthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX0F1dGhMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Home/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Home/Privacy.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xQYXJ0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xQYXJ0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xQYXJ0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xQYXJ0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/Parts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xQYXJ0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/StockUpdate.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/InventoryMasters/StockUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5TWFzdGVyc1xTdG9ja1VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Dashboard.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Items/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25NYXN0ZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25NYXN0ZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25NYXN0ZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25NYXN0ZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/LocationMasters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25NYXN0ZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Partials/newCustomerModal.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Orders/Partials/newCustomerModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXFBhcnRpYWxzXG5ld0N1c3RvbWVyTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/Error.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_AlertPartial.cshtml.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_AlertPartial.cshtml.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGVydFBhcnRpYWwuY3NodG1sLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ModalViewPartial.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ModalViewPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbFZpZXdQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Create.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5TWFzdGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Delete.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5TWFzdGVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Details.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5TWFzdGVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Edit.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5TWFzdGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Index.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/SupplyMasters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGx5TWFzdGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/_ViewImports.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/_ViewStart.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Paul/Desktop/Inventory Management (Infinite Solutions)/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/Desktop/Paul Projects/Inventory_Management_ASP_MVC/InvMng_InfTech/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2gdheup7e3

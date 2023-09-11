@@ -123,7 +123,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items");
+                    b.ToTable("Items", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Location.LocationMaster", b =>
@@ -149,7 +149,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("LocationID");
 
-                    b.ToTable("LocationMaster");
+                    b.ToTable("LocationMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.InventoryMaster", b =>
@@ -187,7 +187,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("InventoryMaster");
+                    b.ToTable("InventoryMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.LogMaster", b =>
@@ -249,7 +249,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("LogMaster");
+                    b.ToTable("LogMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.PartsMaster", b =>
@@ -284,7 +284,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("PartID");
 
-                    b.ToTable("PartsMaster");
+                    b.ToTable("PartsMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.SubLocationMaster", b =>
@@ -314,7 +314,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("SubLocationMaster");
+                    b.ToTable("SubLocationMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Masters.SupplyMaster", b =>
@@ -376,7 +376,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("SupplyMaster");
+                    b.ToTable("SupplyMaster", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Order.Customers.Customer", b =>
@@ -397,7 +397,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Order.Order", b =>
@@ -421,7 +421,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("InvMng_InfTech.Models.Order.OrderItem", b =>
@@ -450,7 +450,7 @@ namespace InvMng_InfTech.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -8,14 +8,14 @@
 
 
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-start">
     @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
     {
-        <h4 class="mt-2 mb-2">Currently Editing: <strong class="text-primary">@Model.PartName</strong></h4>
+        <h4 class="mt-2 mb-1">Currently Editing: <strong class="text-primary">@Model.PartName</strong></h4>
     }
     else
     {
-        <h4 class="mt-2 mb-2">New Item</h4>
+        <h4 class="mt-2 mb-1">New Item</h4>
     }
 </div>
 
