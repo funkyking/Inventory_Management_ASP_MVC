@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace InvMng_InfTech.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -142,6 +142,25 @@ namespace InvMng_InfTech.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LogMaster", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PartsMaster",
+                columns: table => new
+                {
+                    PartID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PartNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PartName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MinNew = table.Column<int>(type: "int", nullable: true),
+                    MinUsed = table.Column<int>(type: "int", nullable: true),
+                    Bin = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Modified = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PartsMaster", x => x.PartID);
                 });
 
             migrationBuilder.CreateTable(
@@ -414,6 +433,9 @@ namespace InvMng_InfTech.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderItems");
+
+            migrationBuilder.DropTable(
+                name: "PartsMaster");
 
             migrationBuilder.DropTable(
                 name: "SubLocationMaster");

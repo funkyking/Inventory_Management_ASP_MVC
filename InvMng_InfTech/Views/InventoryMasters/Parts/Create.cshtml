@@ -6,19 +6,21 @@
 }
 
 
-@if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
-{
-    <h2 class="mt-2 mb-2">New Part</h2>
-     
-}
-else
-{
-    <h3 class="mt-2 mb-2">Edit Part : @Model.PartName</h3>
-}
 
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-center allign-center">
+<div class="d-flex justify-content-center">
+    @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
+    {
+        <h4 class="mt-2 mb-2">Currently Editing: <strong class="text-primary">@Model.PartName</strong></h4>
+    }
+    else
+    {
+        <h4 class="mt-2 mb-2">New Item</h4>
+    }
+</div>
+
+<div class="container mt-3">
+    <div class="d-flex justify-content-center allign-center col-md-auto">
         <form asp-action="@(TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"] ? "PartsEdit" : "PartsCreate")" id="partsCreateForm">
 
             @if (TempData.ContainsKey("EditMode") && (bool)TempData["EditMode"])
@@ -30,75 +32,111 @@ else
                 <div asp-validation-summary="All" class="text-danger"></div>
             </div>
 
-            <!-- Brand -->
-            <div class="mb-3">
-                <label for="Brand" class="form-label">Brand</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
-                    <input asp-for="Brand" id="brand" class="form-control">
+
+
+            <div class="card mb-4" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-sm-5 mb-sm-2">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <!-- Image display -->
+                            <div class="mt-3 mb-3 text-center border" style="width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
+                                <div class="image-placeholder">
+                                    <!-- Display uploaded image here -->
+                                    <img id="partImagePreview" src="" alt="Part Image Preview" class="img-fluid" style="max-width: 150px; max-height: 150px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image upload field -->
+                        <div class="form-group d-flex justify-content-center mb-sm-2">
+                            <label class="btn btn-outline-secondary">
+                                <i class="fas fa-upload"></i>Load Image<input type="file" name="PartImage" class="d-none" accept="image/*" onchange="previewImage(this)">
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body">
+                            <!-- Brand -->
+                            <div class="mb-2">
+                                <label for="Brand" class="form-label">Brand</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
+                                    <input asp-for="Brand" id="brand" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Part Name -->
+                            <div class="mb-2">
+                                <label asp-for="PartName" class="control-label">PartName</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                                    <input asp-for="PartName" id="partName" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Part Number -->
+                            <div class="mb-2">
+                                <label asp-for="PartNumber" class="control-label">Part Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-fingerprint"></i></span>
+                                    <input asp-for="PartNumber" id="partNumber" class="form-control" />
+                                    <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
+                                </div>
+                                <span asp-validation-for="PartNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Part Name -->
-            <div class="mb-3">
-                <label asp-for="PartName" class="control-label">PartName</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                    <input asp-for="PartName" id="partName" class="form-control">
-                </div>
-            </div>
 
-            <!-- Part Number -->
-            <div class="mb-3">
-                <label asp-for="PartNumber" class="control-label">Part Number</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fa-solid fa-fingerprint"></i></span>
-                    <input asp-for="PartNumber" id="partNumber" class="form-control"/>
-                    <button id="generatePartNumber" class="btn btn-outline-primary" type="button"><i class="fas fa-random"></i></button>
-                </div>
-                <span asp-validation-for="PartNumber" class="text-danger"></span>
-            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-header">Optional</div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Min New -->
+                        <div class="col-6 mb-2">
+                            <label asp-for="MinNew" class="control-label">Min New</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-cart-plus"></i></span>
+                                <input asp-for="MinNew" id="minnew" class="form-control">
+                            </div>
+                            <span asp-validation-for="MinNew" class="text-danger"></span>
+                        </div>
 
-            <!-- Min New -->
-            <div class="mb-3">
-                <label asp-for="MinNew" class="control-label">Min New</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fa-solid fa-cart-plus"></i></span>
-                    <input asp-for="MinNew" id="minnew" class="form-control">
-                </div>
-                <span asp-validation-for="MinNew" class="text-danger"></span>
-            </div>
-
-            <!-- Min Used -->
-            <div class="mb-3">
-                <label asp-for="MinUsed" class="control-label">Min Used</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fa-solid fa-box-open"></i></span>
-                    <input asp-for="MinUsed" id="minused" class="form-control">
-                </div>
-                <span asp-validation-for="MinUsed" class="text-danger"></span>
-            </div>
-
-            <!-- Bin -->
-            <div class="mb-3">
-                <label asp-for="Bin" class="control-label">Bin</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fa-solid fa-file-contract"></i></span>
-                    <input asp-for="Bin" id="Bin" class="form-control">
-                </div>
-                <span asp-validation-for="Bin" class="text-danger"></span>
-            </div>
+                        <!-- Min Used -->
+                        <div class=" col-6 mb-2">
+                            <label asp-for="MinUsed" class="control-label">Min Used</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-box-open"></i></span>
+                                <input asp-for="MinUsed" id="minused" class="form-control">
+                            </div>
+                            <span asp-validation-for="MinUsed" class="text-danger"></span>
+                        </div>
+                    </div>
 
 
-            <!-- Description -->
-            <div class="mb-3">
-                <label asp-for="Description" class="control-label">Description</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                    @*<input asp-for="Description" id="description" class="form-control">*@
-                    <textarea asp-for="Description" id="description" class="form-control"></textarea>
+                    <!-- Bin -->
+                    <div class="mb-2">
+                        <label asp-for="Bin" class="control-label">Bin</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-file-contract"></i></span>
+                            <input asp-for="Bin" id="Bin" class="form-control">
+                        </div>
+                        <span asp-validation-for="Bin" class="text-danger"></span>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-2">
+                        <label asp-for="Description" class="control-label">Description</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                            @*<input asp-for="Description" id="description" class="form-control">*@
+                            <textarea asp-for="Description" id="description" class="form-control"></textarea>
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
                 </div>
-                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
 
@@ -116,11 +154,8 @@ else
 
         </form>
     </div>
-    
+
 </div>
-
-
-
 
 
 
@@ -158,7 +193,22 @@ else
                                 $('#validationSummary').html(response.errors.join('<br>'));
                             } else if (response.message) {
                                 // Display the duplicate message
-                                $('#validationSummary').html(response.message);
+                                //$('#validationSummary').html(response.message);
+                                
+                                Toastify({
+                                    text: response.message,
+                                    duration: 3000,
+                                    newWindow: false,
+                                    close: true,
+                                    gravity: "top",
+                                    position: "right",
+                                    stopOnFocus: true,
+                                    style: {
+                                        background: "linear-gradient(to right, #DA4453, #89216B)",
+
+                                      }
+                                }).showToast();
+
                             }
                         }
                     },

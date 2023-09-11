@@ -406,7 +406,7 @@ namespace InvMng_InfTech.Controllers
         // Show Create Page
         public IActionResult PartsCreate()
         {
-            TempData["EditMode"] = true;
+            TempData["EditMode"] = false;
             return View("~/Views/InventoryMasters/Parts/Create.cshtml");
         }
 
@@ -417,11 +417,22 @@ namespace InvMng_InfTech.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_context.PartsMaster.Any(b => b.PartName == partmaster.PartName && b.PartNumber == partmaster.PartNumber))
+
+                if (partmaster.Brand == null || partmaster.PartName == null || partmaster.PartNumber == null)
                 {
-                    // Brand, PartName, or PartNumber already exist
-                    return Json(new { success = false, message = "The combination of PartName and PartNumber already exists." });
+                    return Json(new { success = false, message = "Incomplete Input (Main)" });
                 }
+
+                if (_context.PartsMaster.Any(pn => pn.PartNumber == partmaster.PartNumber))
+                {
+                    return Json(new { success = false, message = "This Part Number is Already Used. Please Select another Number." });
+                }
+
+                if (_context.PartsMaster.Any(b => b.Brand == partmaster.Brand && b.PartName == partmaster.PartName || b.PartName == partmaster.PartNumber))
+                {
+                    return Json(new { success = false, message = "This Brand already Contains the Part." });
+                }
+
 
                 // If no duplicates, proceed to save the part
                 partmaster.PartID = Guid.NewGuid();

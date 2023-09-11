@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvMng_InfTech.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230904065719_PartsMaster")]
-    partial class PartsMaster
+    [Migration("20230910085954_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -262,6 +262,9 @@ namespace InvMng_InfTech.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Bin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
