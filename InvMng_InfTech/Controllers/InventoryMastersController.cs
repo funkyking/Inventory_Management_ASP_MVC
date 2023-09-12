@@ -11,6 +11,7 @@ using System.Diagnostics;
 using InvMng_InfTech.Migrations;
 using PartsMaster = InvMng_InfTech.Models.Masters.PartsMaster;
 using System.Drawing.Drawing2D;
+using Microsoft.VisualBasic;
 
 namespace InvMng_InfTech.Controllers
 {
@@ -284,7 +285,7 @@ namespace InvMng_InfTech.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateStock([Bind("ID,PartNumber,PartName,Brand,stockInOut,StockNew,StockUsed,Modified,Location,SubLocation,Supplier")] LogMaster logmaster)
+        public async Task<IActionResult> UpdateStock([Bind("ID,PartNumber,PartName,Brand,stockInOut,StockNew,StockUsed,Modified,Location,SubLocation,Supplier, remark")] LogMaster logmaster)
         {
 
             var _part = await _context.PartsMaster
@@ -339,12 +340,17 @@ namespace InvMng_InfTech.Controllers
                         if (partrow.StockNew == null) { partrow.StockNew = 0; }
                         partrow.StockNew -= logmaster.StockUsed;
                     }
-
                     partrow.Modified = DateTime.Now;
                     _context.Update(partrow);
                     await _context.SaveChangesAsync();
-                }
 
+
+                    logmaster.Location = partrow.Location;
+                    logmaster.SubLocation = partrow.SubLocation;
+                    logmaster.StockNew = partrow.StockNew;
+                    logmaster.StockUsed = partrow.StockUsed;
+                    logmaster.LogDate = DateTime.Now;
+                }
                 else
                 {
                     var _supplier = await _context.SupplyMaster
@@ -387,6 +393,38 @@ namespace InvMng_InfTech.Controllers
             return View(logmaster);
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetLogData()
+        {
+            var data = await _context.LogMaster
+                .OrderByDescending(l => l.LogDate)
+                .Select(l => new
+                {
+                    Name = l.PartName,
+                    Type = l.StockInOut == "Stock In" ? "In" : "Out",
+                    Time = l.LogDate.ToString("dd/MM HH:mm")
+                }).Take(5).ToListAsync();
+
+            return Json(data);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> SelectedRowDetails(string partNumber)
+        {
+
+            var data = await _context.PartsMaster
+                .Where(p => p.PartNumber == partNumber)
+                .Select(p => new
+                {
+                    brand= p.Brand,
+                    name = p.PartName,
+                    number = p.PartNumber
+                }).FirstOrDefaultAsync();
+
+            return Json(data);   
+        }
 
         #endregion
 

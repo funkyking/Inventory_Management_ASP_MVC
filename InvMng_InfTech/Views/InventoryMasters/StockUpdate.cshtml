@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_ModalViewPartial.cshtml";
 }
 
-
+<h6 id="IsExist" class="mb-3"></h6>
 
 <div class="d-flex justify-content-center mt-4">
     <div class="d-flex justify-content-center">
@@ -22,99 +22,110 @@
                     </label>
                 </div>
                 <input type="hidden" id="hiddenStockInOut" name="stockInOut" value="Stock In">
+                
             </div>
 
 
 
             <!-- Important -->
-            <div class="container" id="important">
-                <!-- Part Name -->
-                <div class="mb-3">
-                    <label asp-for="PartName" class="control-label">PartName</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-cube"></i></span>
-                        <input asp-for="PartName" id="partName" class="form-control">
+            <div class="container mb-4" id="important">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <!-- Part Name -->
+                        <div class="mb-3">
+                            <label asp-for="PartName" class="control-label">PartName</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                                <input asp-for="PartName" id="partName" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Part Number -->
+                        <div class="mb-3">
+                            <label asp-for="PartNumber" class="control-label">PartNumber</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                                <input asp-for="PartNumber" id="partNumber" class="form-control" style="background-color: #f2f4f7">
+                            </div>
+                        </div>
+
+                        <!-- Stock New -->
+                        <div class="mb-3" id="_stockNew">
+                            <label asp-for="StockNew" class="control-label">Stock New</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-plus"></i></span>
+                                <input asp-for="StockNew" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Stock Used -->
+                        <div class="mb-3" id="_stockUsed">
+                            <label asp-for="StockUsed" class="control-label">Stock Used</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-minus"></i></span>
+                                <input asp-for="StockUsed" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Remark -->
+                        <div class="mb-3">
+                            <label for="remark" class="form-label">Remark</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                                <textarea class="form-control" id="remark" name="remark"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
                     </div>
                 </div>
 
-                <!-- Part Number -->
-                <div class="mb-3">
-                    <label asp-for="PartNumber" class="control-label">PartNumber</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-barcode"></i></span>
-                        <input asp-for="PartNumber" id="partNumber" class="form-control" style="background-color: #f2f4f7">
-                    </div>
-                </div>
-
-                <!-- Stock New -->
-                <div class="mb-3" id="_stockNew">
-                    <label asp-for="StockNew" class="control-label">Stock New</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-plus"></i></span>
-                        <input asp-for="StockNew" class="form-control">
-                    </div>
-                </div>
-
-                <!-- Stock Used -->
-                <div class="mb-3" id="_stockUsed">
-                    <label asp-for="StockUsed" class="control-label">Stock Used</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-minus"></i></span>
-                        <input asp-for="StockUsed" class="form-control">
-                    </div>
-                </div>
-
-                <!-- Remark -->
-                <div class="mb-3">
-                    <label for="remark" class="form-label">Remark</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                        <textarea class="form-control" id="remark" name="remark"></textarea>
-                    </div>
-                </div>
-            </div>
-            
 
 
             <!-- Not Important -->
-            <div class="container" id="notImportant">
-                <!-- Brand -->
-                <div class="mb-3">
-                    <label for="brand" class="form-label">Brand</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
-                        <input asp-for="Brand" id="brand" class="form-control">
-                    </div>
-                </div>
+            <div class="container mb-4" id="notImportant" hidden>
+                <div class="card shadow">
+                    <div class="card-header">Optional</div>
+                    <div class="card-body">
+                        <!-- Brand -->
+                        <div class="mb-3">
+                            <label for="brand" class="form-label">Brand</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-copyright"></i></span>
+                                <input asp-for="Brand" id="brand" class="form-control">
+                            </div>
+                        </div>
 
-                <!-- Location -->
-                <div class="mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                        <input type="text" class="form-control" id="location" name="location">
-                    </div>
-                </div>
+                        <!-- Location -->
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" class="form-control" id="location" name="location">
+                            </div>
+                        </div>
 
-                <!-- SubLocation -->
-                <div class="mb-3">
-                    <label for="subLocation" class="form-label">SubLocation</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
-                        <input type="text" class="form-control" id="subLocation" name="subLocation">
-                    </div>
-                </div>
+                        <!-- SubLocation -->
+                        <div class="mb-3">
+                            <label for="subLocation" class="form-label">SubLocation</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+                                <input type="text" class="form-control" id="subLocation" name="subLocation">
+                            </div>
+                        </div>
 
-                <!-- Supplier -->
-                <div class="mb-3">
-                    <label for="supplier" class="form-label">Supplier</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-truck"></i></span>
-                        <input type="text" class="form-control" id="supplier" name="supplier">
+                        <!-- Supplier -->
+                        <div class="mb-3">
+                            <label for="supplier" class="form-label">Supplier</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-truck"></i></span>
+                                <input type="text" class="form-control" id="supplier" name="supplier">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-           
+
 
             <div class="d-grid gap-2 col-6 mx-auto shadow">
                 <button type="submit" class="btn btn-primary btn-block">Update</button>
@@ -163,9 +174,5 @@
                 hiddenInput.val(toggleText.text());
             });
         });
-    </script>
-
-    <script>
-        
     </script>
 }

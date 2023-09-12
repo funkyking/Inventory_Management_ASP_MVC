@@ -79,9 +79,14 @@ $(document).ready(function () {
                         },
                         success: function (data) {
                             if (!data) {
-                                $('#notImportant').show(); // Fade in the container
+                                $('#notImportant').removeAttr('hidden').fadeIn(); // Fade in the container
+                                $('#IsExist').html("New Inventory Item");
+                                
                             } else {
-                                $('#notImportant').hide(); // Fade out the container
+                                $('#notImportant').fadeOut(function () {
+                                    $(this).attr('hidden', true);
+                                    $('#IsExist').html("Update Existing Item");   
+                                });
                             }
                         },
                         error: function (error) {

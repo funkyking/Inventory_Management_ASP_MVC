@@ -52,6 +52,7 @@ $(document).ready(function () {
     $('#myTable').DataTable({
         outerWidth: false,
         outerHeight: false,
+        select: true,
         autoWidth: false,
         paging: true,        // Enable pagination
         searching: true,    // Enable search bar

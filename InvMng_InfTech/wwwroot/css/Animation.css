@@ -9,6 +9,49 @@
     transform: rotate(90deg);
 }
 
+/* Add animation styles */
+.animated-card {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-radius: 0.375rem;
+    animation: animate-border 2s infinite;
+}
 
+    .animated-card:hover {
+        transform: scale(1.05);
+        border: 3px solid transparent; /* Maintain the border-radius */
+        animation: none;
+    }
 
+@keyframes animate-border {
+    0% {
+        border-image-source: linear-gradient(to right, transparent, #007BFF);
+        border-image-slice: 1;
+        border-image-width: 2px; /* Set border width */
+    }
 
+    25% {
+        border-image-source: linear-gradient(to top, transparent, #007BFF);
+        border-image-slice: 1;
+        border-image-width: 2px;
+    }
+
+    50% {
+        border-image-source: linear-gradient(to left, transparent, #007BFF);
+        border-image-slice: 1;
+        border-image-width: 2px;
+    }
+
+    75% {
+        border-image-source: linear-gradient(to bottom, transparent, #007BFF);
+        border-image-slice: 1;
+        border-image-width: 2px;
+    }
+
+    100% {
+        border-image-source: linear-gradient(to right, transparent, #007BFF);
+        border-image-slice: 1;
+        border-image-width: 2px;
+    }
+}

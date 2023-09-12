@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <h3 class="mt-3 mb-3"><i class="fa-solid fa-layer-group mr-2"></i> Inventory</h3>
 
 
@@ -17,41 +19,66 @@
     .modal-transition {
         transition: transform 0.3s ease-in-out;
     }
+
+    .logTable th:first-child,
+    .logTable td:first-child{
+        max-width: 50px;
+    }
+
+    .logTable th,
+    .logTable td{
+		white-space: nowrap;
+        overflow: hidden
+    }
+
 </style>
 
 
 
-<div class="col-md-4">
-    <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Inventory Information</p>
-            <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
-            <a href="#" class="btn "><i class="fab fa-github"></i> Github</a>
-        </div>
-    </div>
-</div>
+
+
+
 
 <div class="row mt-5">
-    <div class="col-sm-2 mb-3">
-        <div class="card shadow">
-            <div class="card-header">
-                <h6 class="text-truncate">Actions</h6>
-            </div>
+    <div class="col-sm-3 mb-3">
+        <div class="card animated-card shadow mb-3">
+            <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column align-items-center">
-            <div class="d-flex flex-column flex-wrap justify-content-between align-items-center">
-                    <h6> This is for Displaying The item Information</h6>
-                    
-
+                <div class="d-flex flex-column flex-wrap justify-content-between align-items-center">
+                    <div id="S_Brand"></div>
+                    <div id="S_Name"></div>
+                    <div id="S_Number"></div>
+                </div>
             </div>
         </div>
+        
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <p class="mb-2">Recent Entries</p>
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <!-- Add the 'table-responsive' class here -->
+                        <table class="table table-bordered logTable text-truncate" id="logdatatable">
+                            <thead class="table-dark" style="font-size: small;">
+                                <!-- Adjust font-size in the media queries as needed -->
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: small;">
+                                <!-- The data comes here-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </div>
-
-
-    <div class="col-sm-8">
+    <div class="col-sm-9">
         <div class="card shadow">
             <div class="card-body">
                 <div class="container d-flex justify-content-end">
@@ -66,7 +93,6 @@
 
                 </div>
                 <div class="table-container">
-
                     <table id="myTable" class="table table-bordered max-width-table" style="width:100%">
                         <thead>
                             <tr>
@@ -75,9 +101,6 @@
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.PartName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Brand)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.StockNew)
@@ -102,15 +125,12 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
+                                <tr data-part-number="@item.PartNumber">
                                     <td>
                                         @Html.DisplayFor(modelItem => item.PartNumber)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.PartName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Brand)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.StockNew)
@@ -192,7 +212,85 @@
                 // Clear the container when the modal is dismissed
                 $('#itemModalContainer').empty();
             });
+
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            loadData(); // Load data initially
+
+            function loadData() {
+                $.ajax({
+                    url: '@Url.Action("GetLogData", "InventoryMasters")', // Replace with your actual URL
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        populateTable(data);
+                        console.log('Worked in Updating Table');
+                    },
+                    error: function () {
+                        console.log('Error fetching data.');
+                    }
+                });
+            }
+
+            function populateTable(data) {
+                var table = $('#logdatatable tbody');
+                table.empty(); // Clear existing data
+
+                if (data && data.length > 0) {
+                    $.each(data, function (index, item) {
+                        var row = '<tr>' +
+                            '<td>' + (item.type || '') + '</td>' +
+                            '<td>' + (item.name || '') + '</td>' +
+                            '<td>' + (item.time || '') + '</td>' +
+                            '</tr>';
+                        table.append(row);
+                    });
+
+                    // Log success
+                    console.log('Data inserted into the table:', data);
+                } else {
+                    // Handle the case when there is no data.
+                    var row = '<tr>' +
+                        '<td colspan="3">No data available.</td>' +
+                        '</tr>';
+                    table.append(row);
+
+                    // Log that no data is available
+                    console.log('No data available.');
+                }
+            }
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Attach a click event handler to the table rows
+            $('#myTable tbody').on('click', 'tr', function () {
+                var partNumber = $(this).data('part-number'); // Get the PartNumber from the data attribute
+
+                // Make an Ajax request to your controller
+                $.ajax({
+                    url: '@Url.Action("SelectedRowDetails", "InventoryMasters")', // Replace with your actual URL
+                    method: 'GET',
+                    data: { partNumber: partNumber }, // Send the PartNumber as a parameter
+                    dataType: 'json',
+                    success: function (data) {
+                        // Update the elements in your card body with the fetched data
+                        $('#S_Brand').text(data.brand);
+                        $('#S_Name').text(data.name);
+                        $('#S_Number').text(data.number);
+                    },
+                    error: function () {
+                        console.log('Error fetching part details.');
+                    }
+                });
+            });
+        });
+    </script>
+
 
 }
